@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0040880614, g: 0.0002236729, b: 0.000000057194203, a: 1}
+  m_IndirectSpecularColor: {r: 0.0040769423, g: 0.00022298036, b: 0.000000056636924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -210,13 +210,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.92710096, y: -0.072641686, z: -0.24841592, w: 0.27110252}
+  m_LocalRotation: {x: -0.9131086, y: -0.084412664, z: -0.24466667, w: 0.3150324}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 572.6, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 578.07, y: -30, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1445961729}
   - component: {fileID: 1445961730}
+  - component: {fileID: 1445961731}
   m_Layer: 0
   m_Name: Linterna
   m_TagString: Untagged
@@ -664,6 +665,19 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1445961731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445961728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc2e47f886875c4d928acb13012e5b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LinternaPlayer: {fileID: 1445961730}
 --- !u!1 &1711031417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,7 +1101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d4ec366c5e1d94597cb94757b8a838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
 --- !u!136 &2120392385
 CapsuleCollider:
   m_ObjectHideFlags: 0
