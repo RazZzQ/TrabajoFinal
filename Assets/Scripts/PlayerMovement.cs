@@ -7,19 +7,24 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody playerRigidbody;
 
+    private Vector3 movement;
+
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        playerRigidbody.velocity = movement * speed;
     }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
         Vector2 movementInput = context.ReadValue<Vector2>();
 
-        Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
+        movement = new Vector3(movementInput.x, 0f, movementInput.y);
 
         movement.Normalize();
-
-        playerRigidbody.velocity = movement * speed;
     }
 }
