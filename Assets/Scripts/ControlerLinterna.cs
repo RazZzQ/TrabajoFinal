@@ -1,30 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ControlerLinterna : MonoBehaviour
 {
     public Light LinternaPlayer;
-    // Start is called before the first frame update
-    void Start()
+    public void OnClick(InputAction.CallbackContext context)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+        if (context.performed)
         {
-            if (LinternaPlayer.enabled == true)
+            if (Input.GetMouseButtonDown(0))
             {
-                LinternaPlayer.enabled = false;
+                if (LinternaPlayer.enabled == true)
+                {
+                    LinternaPlayer.enabled = false;
+                }
+                else if (LinternaPlayer.enabled == false)
+                {
+                    LinternaPlayer.enabled = true;
+                }
             }
-            else if(LinternaPlayer.enabled == false)
-            {
-                LinternaPlayer.enabled = true;
-            }
-            
         }
     }
 }

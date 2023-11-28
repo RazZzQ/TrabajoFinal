@@ -581,6 +581,7 @@ GameObject:
   - component: {fileID: 1445961729}
   - component: {fileID: 1445961730}
   - component: {fileID: 1445961731}
+  - component: {fileID: 1445961732}
   m_Layer: 0
   m_Name: Linterna
   m_TagString: Untagged
@@ -678,6 +679,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LinternaPlayer: {fileID: 1445961730}
+--- !u!114 &1445961732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445961728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 0b7bff48a30071f4fb1ff6581ab85592, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2ebcaf4e-8399-460f-9b63-0653518d9399
+    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fa725531-f470-45f5-a264-0fa051803331
+    m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1445961731}
+        m_TargetAssemblyTypeName: ControlerLinterna, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 35302e8c-e4c1-4d8f-9be4-a11e7300a705
+    m_ActionName: Player/On/Off[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1922a131-fa64-47ea-9177-9bd66fbda3a1
+    m_ActionName: Player/Grab[/Keyboard/e]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1711031417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1110,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &2120392381
 GameObject:
@@ -1116,7 +1175,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &2120392384
 MonoBehaviour:
@@ -1130,6 +1189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d4ec366c5e1d94597cb94757b8a838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalSpeed: 10
+  verticalSpeed: 10
+  clampAngle: 80
   speed: 4
 --- !u!136 &2120392385
 CapsuleCollider:
@@ -1246,21 +1308,17 @@ MonoBehaviour:
     m_ActionId: 2ebcaf4e-8399-460f-9b63-0653518d9399
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2120392381}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: fa725531-f470-45f5-a264-0fa051803331
     m_ActionName: Player/Look
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 35302e8c-e4c1-4d8f-9be4-a11e7300a705
+    m_ActionName: Player/On/Off[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1922a131-fa64-47ea-9177-9bd66fbda3a1
+    m_ActionName: Player/Grab[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
