@@ -1,21 +1,22 @@
 using UnityEngine;
 
-public class Node<T>
-{
-    public T data;
-    public Node<T> next;
 
-    public Node(T data)
-    {
-        this.data = data;
-        this.next = null;
-    }
-}
 
 public class SimpleLinkedList<T> : MonoBehaviour
 {
+    public class Node<T>
+    {
+        public T Value;
+        public Node<T> next;
+
+        public Node(T data)
+        {
+            this.Value = data;
+            this.next = null;
+        }
+    }
     private Node<T> head;
-    private int length;
+    public int length;
 
     // Añadir un elemento al final de la lista
     public void AddLast(T data)
@@ -175,7 +176,7 @@ public class SimpleLinkedList<T> : MonoBehaviour
             current = current.next;
         }
 
-        current.data = newData;
+        current.Value = newData;
     }
 
     // Buscar el valor de un elemento en una posición específica de la lista
@@ -194,6 +195,17 @@ public class SimpleLinkedList<T> : MonoBehaviour
             current = current.next;
         }
 
-        return current.data;
+        return current.Value;
+    }
+    public Node<T> GetNextNode(int index)
+    {
+        Node<T> current = head;
+
+        for (int i = 0; i < index; i++)
+        {
+            current = current.next;
+        }
+
+        return current;
     }
 }
