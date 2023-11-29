@@ -33,10 +33,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         Vector2 mouseDelta = context.ReadValue<Vector2>();
-        if(Rotation == null)
-        {
-            Rotation = transform.localRotation.eulerAngles;
-        }
+        if(Rotation == null) Rotation = transform.localRotation.eulerAngles;
         Rotation.x += mouseDelta.x * Time.deltaTime;
         Rotation.y += mouseDelta.y * Time.deltaTime;
         Rotation.y = Mathf.Clamp(Rotation.y, -clampAngle, clampAngle);
