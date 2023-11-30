@@ -11,11 +11,17 @@ public class ControlerLinterna : MonoBehaviour
     public float currentLife = 0;
     public float TiempoParaEncontrarBateriaNueva = 5;
 
+    //componentesAparte
+    public GameObject PilaPrefab;
 
+    //eventos
     public event Action OnLifeHalfLintern;
     public event Action OnFlashLigthOut;
+    public event Action OnFailedToFindBattery;
 
+    //booleanos
     private bool canToggleFlashlight = true;
+    private bool bateriaInstanciada = false;
 
     private void Start()
     {
@@ -46,7 +52,7 @@ public class ControlerLinterna : MonoBehaviour
     {
         if (currentLife <= 0)
         {
-            // Linterna agotada, ejecuta el evento correspondiente y sal del método
+            ShowBattery();
             OnFlashLigthOut?.Invoke();
             return;
         }
@@ -81,5 +87,31 @@ public class ControlerLinterna : MonoBehaviour
 
         // Habilita la capacidad de cambiar el estado de la linterna
         canToggleFlashlight = true;
+    }
+    private void ShowBattery()
+    {
+        // Mostrar la batería en una posición aleatoria alrededor del jugador
+        Vector3 randomPosition = new Vector3(UnityEngine.Random.Range(-5f, 5f), -6.81f, UnityEngine.Random.Range(-5f, 5f));
+        InstantiateBattery(randomPosition);
+        // Iniciar temporizador para encontrar la batería
+        StartCoroutine(FindBatteryTimer());
+    }
+
+
+    private void InstantiateBattery(Vector3 position)
+    {
+        if (!bateriaInstanciada)
+        {
+            Instantiate(PilaPrefab, position, Quaternion.identity);
+            bateriaInstanciada = true;
+        }
+    }
+
+    private IEnumerator FindBatteryTimer()
+    {
+        yield return new WaitForSeconds(TiempoParaEncontrarBateriaNueva);
+        Debug.Log("Perdiste");
+        // Si el jugador no encuentra la batería a tiempo, ejecuta el evento correspondiente
+        OnFailedToFindBattery?.Invoke();
     }
 }
