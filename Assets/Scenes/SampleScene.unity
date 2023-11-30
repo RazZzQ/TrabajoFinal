@@ -904,6 +904,8 @@ MonoBehaviour:
   currentLife: 0
   TiempoParaEncontrarBateriaNueva: 5
   PilaPrefab: {fileID: 6045001199012246947, guid: ec7eeb2e04ed14044b41a200ad14c664, type: 3}
+  monstruo: {fileID: 2100392688}
+  tiempoStunLinterna: 5
 --- !u!114 &1445961732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6281,9 +6283,10 @@ GameObject:
   - component: {fileID: 2100392684}
   - component: {fileID: 2100392683}
   - component: {fileID: 2100392687}
+  - component: {fileID: 2100392688}
   m_Layer: 0
   m_Name: enemigo
-  m_TagString: Untagged
+  m_TagString: Mounstro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6368,8 +6371,8 @@ Transform:
   m_GameObject: {fileID: 2100392682}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.85, y: -2.4, z: 20.8}
-  m_LocalScale: {x: 1.5407, y: 8.89845, z: 1.5846}
+  m_LocalPosition: {x: 1.85, y: -5.54, z: 20.8}
+  m_LocalScale: {x: 1.5407, y: 2.67, z: 1.5846}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6401,6 +6404,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2100392688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100392682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2924d8a38ef774894985ae9149800d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanciaAtaque: 2
+  distanciaVision: 50
+  tiempoStunMaximo: 120
+  tiempoparallegar: 2
+  velocidad: {x: 5, y: 5, z: 5}
+  layer:
+    serializedVersion: 2
+    m_Bits: 1
+  damage: 5
+  linterna: {fileID: 1445961731}
+  player: {fileID: 2120392384}
 --- !u!1 &2120392381
 GameObject:
   m_ObjectHideFlags: 0
@@ -6418,7 +6444,7 @@ GameObject:
   - component: {fileID: 2120392388}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -14,6 +14,8 @@ public class ControlerLinterna : MonoBehaviour
 
     //componentesAparte
     public GameObject PilaPrefab;
+    public MonsterControler monstruo;
+    public float tiempoStunLinterna = 5f;
 
     //eventos
     public event Action OnLifeHalfLintern;
@@ -130,5 +132,9 @@ public class ControlerLinterna : MonoBehaviour
         Debug.Log("Perdiste");
         // Si el jugador no encuentra la batería a tiempo, ejecuta el evento correspondiente
         OnFailedToFindBattery?.Invoke();
+    }
+    public void DamagePlayer(int damage)
+    {
+        LifeLintern -= damage;
     }
 }
