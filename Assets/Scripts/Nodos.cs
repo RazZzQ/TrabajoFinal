@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Nodos : MonoBehaviour
 {
-    public SimpleLinkedList<Nodos> ListaNodosVecinos;
+    public Lista<Nodos> ListaNodosVecinos;
 
     void Start()
     {
-        
+        Lista<Nodos> ListaNodosVecinos = new Lista<Nodos>();
+        ListaNodosVecinos.AddFirst(this);
     }
 
     // Update is called once per frame
@@ -18,7 +19,14 @@ public class Nodos : MonoBehaviour
     }
     public Nodos GetNextNode()
     {
-        int index = Random.Range(0, ListaNodosVecinos.length);
-        return ListaNodosVecinos.GetNextNode(index);
+        if (ListaNodosVecinos.length > 0)
+        {
+            int indiceAleatorio = Random.Range(0, ListaNodosVecinos.length);
+            return ListaNodosVecinos.GetNextNode(indiceAleatorio).Value;
+        }
+        else
+        {
+            return null;
+        }
     }
 }

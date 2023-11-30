@@ -1,13 +1,10 @@
 using UnityEngine;
-
-
-
 public class SimpleLinkedList<T> : MonoBehaviour
 {
-    public class Node<T>
+    public class Node
     {
         public T Value;
-        public Node<T> next;
+        public Node next;
 
         public Node(T data)
         {
@@ -15,13 +12,13 @@ public class SimpleLinkedList<T> : MonoBehaviour
             this.next = null;
         }
     }
-    private Node<T> head;
+    private Node head;
     public int length;
 
     // Añadir un elemento al final de la lista
     public void AddLast(T data)
     {
-        Node<T> newNode = new Node<T>(data);
+        Node newNode = new Node(data);
 
         if (head == null)
         {
@@ -29,7 +26,7 @@ public class SimpleLinkedList<T> : MonoBehaviour
         }
         else
         {
-            Node<T> current = head;
+            Node current = head;
             while (current.next != null)
             {
                 current = current.next;
@@ -43,7 +40,7 @@ public class SimpleLinkedList<T> : MonoBehaviour
     // Añadir un elemento al inicio de la lista
     public void AddFirst(T data)
     {
-        Node<T> newNode = new Node<T>(data);
+        Node newNode = new Node(data);
 
         if (head == null)
         {
@@ -67,7 +64,7 @@ public class SimpleLinkedList<T> : MonoBehaviour
             return;
         }
 
-        Node<T> newNode = new Node<T>(data);
+        Node newNode = new Node(data);
 
         if (position == 0)
         {
@@ -79,7 +76,7 @@ public class SimpleLinkedList<T> : MonoBehaviour
         }
         else
         {
-            Node<T> current = head;
+            Node current = head;
 
             for (int i = 0; i < position - 1; i++)
             {
@@ -117,7 +114,7 @@ public class SimpleLinkedList<T> : MonoBehaviour
         }
         else
         {
-            Node<T> current = head;
+            Node current = head;
             while (current.next.next != null)
             {
                 current = current.next;
@@ -147,7 +144,7 @@ public class SimpleLinkedList<T> : MonoBehaviour
         }
         else
         {
-            Node<T> current = head;
+            Node current = head;
 
             for (int i = 0; i < position - 1; i++)
             {
@@ -169,7 +166,7 @@ public class SimpleLinkedList<T> : MonoBehaviour
             return;
         }
 
-        Node<T> current = head;
+        Node current = head;
 
         for (int i = 0; i < position; i++)
         {
@@ -188,7 +185,7 @@ public class SimpleLinkedList<T> : MonoBehaviour
             return default(T);
         }
 
-        Node<T> current = head;
+        Node current = head;
 
         for (int i = 0; i < position; i++)
         {
@@ -197,9 +194,9 @@ public class SimpleLinkedList<T> : MonoBehaviour
 
         return current.Value;
     }
-    public Node<T> GetNextNode(int index)
+    public Node GetNextNode(int index)
     {
-        Node<T> current = head;
+        Node current = head;
 
         for (int i = 0; i < index; i++)
         {
