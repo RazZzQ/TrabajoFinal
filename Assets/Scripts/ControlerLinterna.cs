@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class ControlerLinterna : MonoBehaviour
 {
     public Light LinternaPlayer;
+    ParticleSystem particulas;
     public float LifeLintern = 100;
     public float currentLife = 0;
     public float TiempoParaEncontrarBateriaNueva = 5;
@@ -22,15 +23,28 @@ public class ControlerLinterna : MonoBehaviour
     //booleanos
     private bool canToggleFlashlight = true;
     private bool bateriaInstanciada = false;
+    private bool OnEnableOnce = false;
 
     private void Start()
     {
+        particulas = GetComponent<ParticleSystem>();
         currentLife = LifeLintern;
     }
     private void Update()
     {
         flashlightflashing();
     }
+
+    private void OnEnable()
+    {
+        OnFlashLigthOut += ShowBattery;
+    }
+
+    private void OnDisable()
+    {
+        OnFlashLigthOut -= ShowBattery;
+    }
+
     public void OnClick(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -38,11 +52,13 @@ public class ControlerLinterna : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && canToggleFlashlight)
             {
                 if (LinternaPlayer.enabled == true)
-                {
+                {                    
+                    particulas.Stop();
                     LinternaPlayer.enabled = false;
                 }
                 else if (LinternaPlayer.enabled == false)
                 {
+                    particulas.Play();
                     LinternaPlayer.enabled = true;
                 }
             }
@@ -52,7 +68,6 @@ public class ControlerLinterna : MonoBehaviour
     {
         if (currentLife <= 0)
         {
-            ShowBattery();
             OnFlashLigthOut?.Invoke();
             return;
         }
@@ -74,6 +89,7 @@ public class ControlerLinterna : MonoBehaviour
 
         // Apaga la linterna
         LinternaPlayer.enabled = false;
+        particulas.Stop();
 
         // Espera un tiempo aleatorio para simular el parpadeo
         float timeToWait = UnityEngine.Random.Range(0.1f, 2f);
@@ -81,6 +97,7 @@ public class ControlerLinterna : MonoBehaviour
 
         // Enciende la linterna
         LinternaPlayer.enabled = true;
+        particulas.Play();
 
         // Espera un tiempo aleatorio antes de permitir cambiar el estado nuevamente
         yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, 2f));
