@@ -1612,6 +1612,8 @@ MonoBehaviour:
   verticalSpeed: 10
   clampAngle: 80
   speed: 4
+  player: {fileID: 2120392384}
+  Camera: {fileID: 1711031418}
 --- !u!136 &2120392385
 CapsuleCollider:
   m_ObjectHideFlags: 0
