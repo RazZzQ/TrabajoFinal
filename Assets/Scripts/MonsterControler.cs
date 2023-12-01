@@ -19,7 +19,6 @@ public class MonsterControler : MonoBehaviour
     public int damage = 5;
 
     //boleanos
-    private bool IsPlayerInVision = false;
     private bool isStunned = false;
 
     private float stunTimer = 0f;
