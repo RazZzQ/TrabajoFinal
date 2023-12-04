@@ -27,6 +27,8 @@ public class MonsterControler : MonoBehaviour
     public ControlerLinterna linterna;
     public PlayerMovement player;
     public event Action OnStun;
+
+
     private void Update()
     {
         VisionPlayer();
@@ -63,6 +65,7 @@ public class MonsterControler : MonoBehaviour
                 Debug.DrawRay(transform.position, direccionRayo * distanciaVision, Color.green);
             }
         }
+
         /*RaycastHit hit;
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, distanciaVision, layer))
