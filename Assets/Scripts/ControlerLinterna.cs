@@ -53,7 +53,7 @@ public class ControlerLinterna : MonoBehaviour
     {
         if (context.performed)
         {
-            if (Input.GetMouseButtonDown(0) && canToggleFlashlight)
+            if (Input.GetButtonDown("LinternOnOff") && canToggleFlashlight)
             {
                 if (LinternaPlayer.enabled == true)
                 {                    

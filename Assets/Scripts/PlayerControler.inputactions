@@ -100,6 +100,28 @@
                 },
                 {
                     "name": "",
+                    "id": "44970e9f-15cb-48bf-a610-0ab50bbb6111",
+                    "path": "<Joystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a422e84e-928b-4ef2-b72e-40b618b5d1f2",
+                    "path": "<Joystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f130f4ec-5028-4e13-b58f-60c364b6c782",
                     "path": "<Mouse>/delta",
                     "interactions": "",
@@ -113,6 +135,17 @@
                     "name": "",
                     "id": "47b9955e-6fc2-4400-84eb-ddb2a9c33728",
                     "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "On/Off",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b72bed96-6925-4796-b96d-3663f4cbdec9",
+                    "path": "<HID::ZhiXu GYB G801BT>/button2",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
