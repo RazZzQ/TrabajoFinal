@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Node
   - Mounstro
+  - StunMonster
   layers:
   - Default
   - TransparentFX

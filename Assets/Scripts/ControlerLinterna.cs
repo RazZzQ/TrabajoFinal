@@ -22,6 +22,7 @@ public class ControlerLinterna : MonoBehaviour
     public event Action OnFlashLigthOut;
     public event Action OnFailedToFindBattery;
     public event Action OnLinternOff;
+    public event Action OnLinternOn;
 
     //booleanos
     private bool canToggleFlashlight = true;
@@ -65,6 +66,8 @@ public class ControlerLinterna : MonoBehaviour
                 {
                     particulas.Play();
                     LinternaPlayer.enabled = true;
+
+                    OnLinternOn?.Invoke();
                 }
             }
         }

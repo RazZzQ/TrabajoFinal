@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 24443986}
   m_Layer: 0
   m_Name: PointForStun (11)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 32976996}
   m_Layer: 0
   m_Name: PointForStun (3)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 234617600}
   m_Layer: 0
   m_Name: PointForStun (2)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 430028248}
   m_Layer: 0
   m_Name: PointForStun (9)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 541853347}
   m_Layer: 0
   m_Name: PointForStun (5)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 886508266}
   m_Layer: 0
   m_Name: PointForStun (6)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -823,7 +823,7 @@ GameObject:
   - component: {fileID: 1098145840}
   m_Layer: 0
   m_Name: PointForStun (12)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 1296211184}
   m_Layer: 0
   m_Name: PointForStun (1)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6336,6 +6336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d02d56ca551af4da587cbff7069efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Linterna: {fileID: 1445961731}
 --- !u!1 &1560688262
 GameObject:
   m_ObjectHideFlags: 0
@@ -6348,7 +6349,7 @@ GameObject:
   - component: {fileID: 1560688264}
   m_Layer: 0
   m_Name: PointForStun (7)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6401,7 +6402,7 @@ GameObject:
   - component: {fileID: 1569101779}
   m_Layer: 0
   m_Name: PointForStun (10)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6622,7 +6623,7 @@ GameObject:
   - component: {fileID: 1710502639}
   m_Layer: 0
   m_Name: PointForStun (13)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6884,7 +6885,7 @@ GameObject:
   - component: {fileID: 1820383026}
   m_Layer: 0
   m_Name: PointForStun
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6937,7 +6938,7 @@ GameObject:
   - component: {fileID: 1839831385}
   m_Layer: 0
   m_Name: PointForStun (4)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7023,7 +7024,7 @@ GameObject:
   - component: {fileID: 1954874748}
   m_Layer: 0
   m_Name: PointForStun (14)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7177,7 +7178,7 @@ GameObject:
   - component: {fileID: 2075575262}
   m_Layer: 0
   m_Name: PointForStun (8)
-  m_TagString: Untagged
+  m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

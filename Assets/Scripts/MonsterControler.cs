@@ -26,6 +26,8 @@ public class MonsterControler : MonoBehaviour
 
     public ControlerLinterna linterna;
     public PlayerMovement player;
+    
+    //Eventos
     public event Action OnStun;
 
 
@@ -48,7 +50,6 @@ public class MonsterControler : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Player"))
                 {
-                    Debug.Log("Colisión con el jugador");
                     // Lógica adicional aquí
                     Vector3 directionToPlayer = player.transform.position - transform.position;
                     directionToPlayer.y = 0f; // Mantener la rotación solo en el plano horizontal
