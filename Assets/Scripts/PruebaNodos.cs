@@ -1,0 +1,88 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+[System.Serializable]
+public class Node
+{
+    public Transform point;
+    public Node nextNode;
+    public Node(Transform point)
+    {
+        this.point = point; 
+    }
+}
+
+public class LinkedList
+{
+    public Node head;
+    public Node tail;
+
+    public void AddNode(Transform point)
+    {
+        Node newNode = new Node(point);
+
+        if (head == null)
+        {
+            head = newNode;
+            tail = newNode;
+        }
+        else
+        {
+            tail.nextNode = newNode;
+            tail = newNode;
+        }
+    }
+}
+public class PruebaNodos : MonoBehaviour
+{
+    public Vector3 velocidad;
+    public float tiempoparallegar;
+    public LinkedList linkedList;
+
+    private Node currentNode;
+
+    public Transform nodo;
+    public Transform nodo1;
+    public Transform nodo2;
+    public Transform nodo3;
+    private void Start()
+    {
+        linkedList = new LinkedList();
+
+        // Agrega tus nodos aquí (asegúrate de configurarlos en el Inspector)
+        linkedList.AddNode(nodo);
+        linkedList.AddNode(nodo1);
+        linkedList.AddNode(nodo2);
+        linkedList.AddNode(nodo3);
+        // Agrega tantos nodos como necesites
+    }
+
+    private void Update()
+    {
+        MoveToNode();
+    }
+
+    private void MoveToNode()
+    {
+        if (currentNode == null)
+        {
+            currentNode = linkedList.head;
+        }
+
+        if (currentNode != null)
+        {
+            Vector3 directionToNode = currentNode.point.transform.position - transform.position;
+            directionToNode.y = 0f;
+            transform.rotation = Quaternion.LookRotation(directionToNode);
+            transform.position = Vector3.SmoothDamp(transform.position, currentNode.point.transform.position, ref velocidad, tiempoparallegar);
+
+            float distanceToNode = Vector3.Distance(transform.position, currentNode.point.transform.position);
+            if (distanceToNode < 0.1f)
+            {
+                currentNode = currentNode.nextNode;
+            }
+        }
+    }
+}
+
+
