@@ -66,19 +66,5 @@ public class MonsterControler : MonoBehaviour
                 Debug.DrawRay(transform.position, direccionRayo * distanciaVision, Color.green);
             }
         }
-
-        /*RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, transform.forward, out hit, distanciaVision, layer))
-        {
-            Debug.DrawRay(transform.position, Vector3.forward * distanciaVision, Color.red);
-
-            if (hit.collider.CompareTag("Player"))
-            {
-                Debug.Log("Colisión con el jugador");
-
-                transform.position = Vector3.SmoothDamp(transform.position, player.transform.position, ref velocidad, tiempoparallegar);
-            }
-        }*/
     }
 }
