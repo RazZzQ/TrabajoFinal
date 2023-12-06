@@ -49,12 +49,11 @@ public class PruebaNodos : MonoBehaviour
     {
         linkedList = new LinkedList();
 
-        // Agrega tus nodos aquí (asegúrate de configurarlos en el Inspector)
+        // Agrega tus nodos aquí
         linkedList.AddNode(nodo);
         linkedList.AddNode(nodo1);
         linkedList.AddNode(nodo2);
         linkedList.AddNode(nodo3);
-        // Agrega tantos nodos como necesites
     }
 
     private void Update()
