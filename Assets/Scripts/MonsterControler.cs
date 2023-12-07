@@ -3,6 +3,37 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+public class Node
+{
+    public Transform point;
+    public Node nextNode;
+    public Node(Transform point)
+    {
+        this.point = point;
+    }
+}
+
+public class LinkedList
+{
+    public Node head;
+    public Node Head;
+
+    public void AddNode(Transform point)
+    {
+        Node newNode = new Node(point);
+
+        if (head == null)
+        {
+            head = newNode;
+            Head = newNode;
+        }
+        else
+        {
+            Head.nextNode = newNode;
+            Head = newNode;
+        }
+    }
+}
 public class MonsterControler : MonoBehaviour
 {
     //variables
@@ -12,7 +43,7 @@ public class MonsterControler : MonoBehaviour
     public float tiempoparallegar;
     public int numRayos = 10;
     public float anguloTotal = 180f;
-
+    private float stunTimer = 0f;
     public Vector3 velocidad;
     public LayerMask layer;
     
@@ -20,17 +51,34 @@ public class MonsterControler : MonoBehaviour
 
     //boleanos
     private bool isStunned = false;
+    private bool isPlayerInVision = false;
 
-    private float stunTimer = 0f;
-
-
+    //referencias
     public ControlerLinterna linterna;
     public PlayerMovement player;
-    
+
     //Eventos
     public event Action OnStun;
+    
+    //lista y nodos
+    private Node currentNode;
 
+    public LinkedList linkedList;
 
+    public Transform nodo;
+    public Transform nodo1;
+    public Transform nodo2;
+    public Transform nodo3;
+    private void Start()
+    {
+        linkedList = new LinkedList();
+
+        // Agrega tus nodos aquí
+        linkedList.AddNode(nodo);
+        linkedList.AddNode(nodo1);
+        linkedList.AddNode(nodo2);
+        linkedList.AddNode(nodo3);
+    }
     private void Update()
     {
         VisionPlayer();
@@ -50,7 +98,7 @@ public class MonsterControler : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Player"))
                 {
-                    // Lógica adicional aquí
+                    // Lógica de seguimiento
                     Vector3 directionToPlayer = player.transform.position - transform.position;
                     directionToPlayer.y = 0f; // Mantener la rotación solo en el plano horizontal
                     transform.rotation = Quaternion.LookRotation(directionToPlayer);
@@ -62,7 +110,24 @@ public class MonsterControler : MonoBehaviour
             }
             else
             {
-                // Si no hay colisión, dibuja el rayo hasta la distanciaVision
+                if (currentNode == null)
+                {
+                    currentNode = linkedList.head;
+                }
+
+                if (currentNode != null)
+                {
+                    Vector3 directionToNode = currentNode.point.transform.position - transform.position;
+                    directionToNode.y = 0f;
+                    transform.rotation = Quaternion.LookRotation(directionToNode);
+                    transform.position = Vector3.SmoothDamp(transform.position, currentNode.point.transform.position, ref velocidad, tiempoparallegar);
+
+                    float distanceToNode = Vector3.Distance(transform.position, currentNode.point.transform.position);
+                    if (distanceToNode < 0.1f)
+                    {
+                        currentNode = currentNode.nextNode;
+                    }
+                }
                 Debug.DrawRay(transform.position, direccionRayo * distanciaVision, Color.green);
             }
         }

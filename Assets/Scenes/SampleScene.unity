@@ -431,7 +431,7 @@ Transform:
   m_GameObject: {fileID: 527744187}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.15, y: -9.5, z: 22.8}
+  m_LocalPosition: {x: 5.15, y: -4.3, z: 200.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7597,6 +7597,10 @@ MonoBehaviour:
   damage: 5
   linterna: {fileID: 1445961731}
   player: {fileID: 2120392384}
+  nodo: {fileID: 1944755458361052241}
+  nodo1: {fileID: 1441215306}
+  nodo2: {fileID: 334890876}
+  nodo3: {fileID: 2074881944}
 --- !u!1 &2120392381
 GameObject:
   m_ObjectHideFlags: 0

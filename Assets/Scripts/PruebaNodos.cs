@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
-[System.Serializable]
-public class Node
+/*public class Node
 {
     public Transform point;
     public Node nextNode;
@@ -15,7 +15,7 @@ public class Node
 public class LinkedList
 {
     public Node head;
-    public Node tail;
+    public Node Head;
 
     public void AddNode(Transform point)
     {
@@ -24,20 +24,22 @@ public class LinkedList
         if (head == null)
         {
             head = newNode;
-            tail = newNode;
+            Head = newNode;
         }
         else
         {
-            tail.nextNode = newNode;
-            tail = newNode;
+            Head.nextNode = newNode;
+            Head = newNode;
         }
     }
-}
-public class PruebaNodos : MonoBehaviour
+}*/
+/*public class PruebaNodos : MonoBehaviour
 {
     public Vector3 velocidad;
     public float tiempoparallegar;
     public LinkedList linkedList;
+
+    public event Action onVisionPlayer;
 
     private Node currentNode;
 
@@ -82,6 +84,6 @@ public class PruebaNodos : MonoBehaviour
             }
         }
     }
-}
+}*/
 
 
