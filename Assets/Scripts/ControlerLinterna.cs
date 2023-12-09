@@ -142,7 +142,7 @@ public class ControlerLinterna : MonoBehaviour
     private void ShowBattery()
     {
         // Mostrar la batería en una posición aleatoria alrededor del jugador
-        Vector3 randomPosition = new Vector3(UnityEngine.Random.Range(-5f, 5f), -3.82f, UnityEngine.Random.Range(-5f, 5f));
+        Vector3 randomPosition = new Vector3(UnityEngine.Random.Range(-5f, 5f), -6.85f, UnityEngine.Random.Range(-5f, 5f));
         InstantiateBattery(randomPosition);
         // Iniciar temporizador para encontrar la batería
         StartCoroutine(FindBatteryTimer());
