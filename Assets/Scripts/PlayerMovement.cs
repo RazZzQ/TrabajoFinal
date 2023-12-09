@@ -4,19 +4,21 @@ using Cinemachine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //Velocidad player
     public float horizontalSpeed = 10f;
     public float verticalSpeed = 10f;
     public float clampAngle = 80f;
     public float speed = 5f;
-
-    public PlayerMovement player;
-    public CinemachineVirtualCamera Camera;
+    //movimiento camara
+    private Vector3 movement;
     private Vector3 camForward;
     private Vector3 camRight; 
-
+    //referencias
+    public PlayerMovement player;
+    public CinemachineVirtualCamera Camera;
+    public Objeto[] ObjetosNecesario;
+    public ObjetoEspecial[] ObjetosEspeciales;
     private Rigidbody playerRigidbody;
-
-    private Vector3 movement;
 
     private void Start()
     {
@@ -61,6 +63,16 @@ public class PlayerMovement : MonoBehaviour
         else if (context.canceled)
         {
             speed = 5f;
+        }
+    }
+    public void OnPressE(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+
+            }
         }
     }
 }
