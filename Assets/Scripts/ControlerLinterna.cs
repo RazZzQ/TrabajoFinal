@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ControlerLinterna : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ControlerLinterna : MonoBehaviour
     ParticleSystem particulas;
     public GameObject PilaPrefab;
     public MonsterControler monstruo;
+    public Slider SliderLife;
 
     //Variables para la vida
     public float LifeLintern = 100;
@@ -35,10 +37,13 @@ public class ControlerLinterna : MonoBehaviour
     private bool canToggleFlashlight = true;
     private bool bateriaInstanciada = false;
 
+
     private void Start()
     {
         particulas = GetComponent<ParticleSystem>();
         currentLife = LifeLintern;
+        SliderLife.maxValue = LifeLintern;
+        SliderLife.value = currentLife;
     }
     private void Update()
     {
@@ -48,6 +53,8 @@ public class ControlerLinterna : MonoBehaviour
         {
             // Disminuir la vida de la linterna con una velocidad determinada
             currentLife -= velocidadPerdidaVida * Time.deltaTime;
+
+            SliderLife.value = currentLife;
         }
     }
 
@@ -88,6 +95,8 @@ public class ControlerLinterna : MonoBehaviour
     {
         if (currentLife <= 0)
         {
+            LinternaPlayer.enabled = false;
+            SliderLife.handleRect.gameObject.SetActive(false);
             OnFlashLigthOut?.Invoke();
             return;
         }
@@ -109,6 +118,8 @@ public class ControlerLinterna : MonoBehaviour
 
         // Apaga la linterna
         LinternaPlayer.enabled = false;
+        SliderLife.handleRect.gameObject.SetActive(false);
+
         particulas.Stop();
 
         // Espera un tiempo aleatorio para simular el parpadeo
@@ -117,6 +128,8 @@ public class ControlerLinterna : MonoBehaviour
 
         // Enciende la linterna
         LinternaPlayer.enabled = true;
+        SliderLife.handleRect.gameObject.SetActive(true);
+
         particulas.Play();
 
         // Espera un tiempo aleatorio antes de permitir cambiar el estado nuevamente
