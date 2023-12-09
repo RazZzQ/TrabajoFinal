@@ -96,6 +96,7 @@ public class ControlerLinterna : MonoBehaviour
         if (currentLife <= 0)
         {
             LinternaPlayer.enabled = false;
+            SliderLife.fillRect.gameObject.SetActive(false);
             SliderLife.handleRect.gameObject.SetActive(false);
             OnFlashLigthOut?.Invoke();
             return;
@@ -141,7 +142,7 @@ public class ControlerLinterna : MonoBehaviour
     private void ShowBattery()
     {
         // Mostrar la batería en una posición aleatoria alrededor del jugador
-        Vector3 randomPosition = new Vector3(UnityEngine.Random.Range(-5f, 5f), -6.81f, UnityEngine.Random.Range(-5f, 5f));
+        Vector3 randomPosition = new Vector3(UnityEngine.Random.Range(-5f, 5f), -3.82f, UnityEngine.Random.Range(-5f, 5f));
         InstantiateBattery(randomPosition);
         // Iniciar temporizador para encontrar la batería
         StartCoroutine(FindBatteryTimer());
