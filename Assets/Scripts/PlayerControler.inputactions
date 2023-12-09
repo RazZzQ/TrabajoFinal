@@ -15,10 +15,10 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Look",
-                    "type": "Value",
+                    "name": "Run",
+                    "type": "Button",
                     "id": "fa725531-f470-45f5-a264-0fa051803331",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -122,17 +122,6 @@
                 },
                 {
                     "name": "",
-                    "id": "f130f4ec-5028-4e13-b58f-60c364b6c782",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "47b9955e-6fc2-4400-84eb-ddb2a9c33728",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -144,8 +133,8 @@
                 },
                 {
                     "name": "",
-                    "id": "b72bed96-6925-4796-b96d-3663f4cbdec9",
-                    "path": "<HID::ZhiXu GYB G801BT>/button2",
+                    "id": "32e27262-dc6c-4047-a103-c41b91d47a49",
+                    "path": "<Joystick>/stick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -161,6 +150,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d27678a2-6a5b-4e71-87ae-8080e06d8b1d",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

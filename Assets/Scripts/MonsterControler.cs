@@ -56,14 +56,13 @@ public class MonsterControler : MonoBehaviour
     //referencias
     public ControlerLinterna linterna;
     public PlayerMovement player;
+    private Node currentNode;
+    public LinkedList linkedList;
 
     //Eventos
     public event Action OnStun;
     
     //lista y nodos
-    private Node currentNode;
-
-    public LinkedList linkedList;
 
     public Transform nodo;
     public Transform nodo1;
@@ -81,12 +80,31 @@ public class MonsterControler : MonoBehaviour
     }
     private void Update()
     {
+        if (isPlayerInVision)
+        {
+            MoveToPlayer();
+        }
+        else
+        {
+            MoveToNode();
+        }
+
         VisionPlayer();
     }
-
+    private void MoveToPlayer()
+    {
+        if (player != null)
+        {
+            Vector3 directionToPlayer = player.transform.position - transform.position;
+            directionToPlayer.y = 0f;
+            transform.rotation = Quaternion.LookRotation(directionToPlayer);
+            transform.position = Vector3.SmoothDamp(transform.position, player.transform.position, ref velocidad, tiempoparallegar);
+        }
+    }
     public void VisionPlayer()
     {
         float anguloEntreRayos = anguloTotal / numRayos;
+        bool playerDetected = false;
 
         for (int i = 0; i < numRayos; i++)
         {
@@ -99,10 +117,12 @@ public class MonsterControler : MonoBehaviour
                 if (hit.collider.CompareTag("Player"))
                 {
                     // Lógica de seguimiento
-                    Vector3 directionToPlayer = player.transform.position - transform.position;
+                    playerDetected = true;
+                    break;
+                    /*Vector3 directionToPlayer = player.transform.position - transform.position;
                     directionToPlayer.y = 0f; // Mantener la rotación solo en el plano horizontal
                     transform.rotation = Quaternion.LookRotation(directionToPlayer);
-                    transform.position = Vector3.SmoothDamp(transform.position, player.transform.position, ref velocidad, tiempoparallegar);
+                    transform.position = Vector3.SmoothDamp(transform.position, player.transform.position, ref velocidad, tiempoparallegar);*/
 
                 }
                 // Dibuja el rayo de colisión
@@ -110,26 +130,31 @@ public class MonsterControler : MonoBehaviour
             }
             else
             {
-                if (currentNode == null)
-                {
-                    currentNode = linkedList.head;
-                }
-
-                if (currentNode != null)
-                {
-                    Vector3 directionToNode = currentNode.point.transform.position - transform.position;
-                    directionToNode.y = 0f;
-                    transform.rotation = Quaternion.LookRotation(directionToNode);
-                    transform.position = Vector3.SmoothDamp(transform.position, currentNode.point.transform.position, ref velocidad, tiempoparallegar);
-
-                    float distanceToNode = Vector3.Distance(transform.position, currentNode.point.transform.position);
-                    if (distanceToNode < 0.1f)
-                    {
-                        currentNode = currentNode.nextNode;
-                    }
-                }
                 Debug.DrawRay(transform.position, direccionRayo * distanciaVision, Color.green);
             }
+        }
+        isPlayerInVision = playerDetected;
+    }
+    private void MoveToNode()
+    {
+        if (currentNode == null)
+        {
+            currentNode = linkedList.head;
+        }
+
+        if (currentNode != null)
+        {
+            Vector3 directionToNode = currentNode.point.transform.position - transform.position;
+            directionToNode.y = 0f;
+            transform.rotation = Quaternion.LookRotation(directionToNode);
+            transform.position = Vector3.SmoothDamp(transform.position, currentNode.point.transform.position, ref velocidad, tiempoparallegar);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Node"))
+        {
+            currentNode = currentNode.nextNode;
         }
     }
 }

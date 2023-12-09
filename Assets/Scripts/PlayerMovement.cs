@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float verticalSpeed = 10f;
     public float clampAngle = 80f;
     public float speed = 5f;
+    private float speedModify = 7f;
 
     public PlayerMovement player;
     public CinemachineVirtualCamera Camera;
@@ -17,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody playerRigidbody;
 
     private Vector3 movement;
-    private Vector3 Rotation;
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         movement.Normalize();
         camDirection();
 
-        movement = movementInput.x * camRight +movementInput.y * camForward;
+        movement = movementInput.x * camRight + movementInput.y * camForward;
 
         player.transform.LookAt(player.transform.position + movement);
     }
@@ -53,8 +53,15 @@ public class PlayerMovement : MonoBehaviour
         camRight = camRight.normalized;
     }
 
-    public void OnLook(InputAction.CallbackContext context)
+    public void OnRuning(InputAction.CallbackContext context)
     {
-
+        if (context.performed)
+        {
+            speed = speedModify;
+        }
+        else if (context.canceled)
+        {
+            speedModify = speed;
+        }
     }
 }
