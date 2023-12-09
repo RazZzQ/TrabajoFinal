@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 24443985}
   - component: {fileID: 24443986}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (11)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -186,7 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 32976995}
   - component: {fileID: 32976996}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (3)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -229,6 +229,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 12, y: 12, z: 1}
   m_Center: {x: 0, y: 0, z: -2.27}
+--- !u!1 &45347627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9211495179898292172, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
+  m_PrefabInstance: {fileID: 1441215305}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &185639441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9211495179898292172, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
+  m_PrefabInstance: {fileID: 334890875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &234617598
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 234617599}
   - component: {fileID: 234617600}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (2)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -346,13 +356,37 @@ PrefabInstance:
     - {fileID: -7674279882695468498, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9211495179898292172, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 334890877}
   m_SourcePrefab: {fileID: 100100000, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
 --- !u!4 &334890876 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3731026013858160640, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
   m_PrefabInstance: {fileID: 334890875}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &334890877
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185639441}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &430028246
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430028247}
   - component: {fileID: 430028248}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (9)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -451,7 +485,7 @@ GameObject:
   m_Component:
   - component: {fileID: 541853346}
   - component: {fileID: 541853347}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (5)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -598,7 +632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 886508265}
   - component: {fileID: 886508266}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (6)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -778,7 +812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1098145839}
   - component: {fileID: 1098145840}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (12)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -944,10 +978,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 649e3681ffd07104e8c9dbc2482b423c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1331758481}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 649e3681ffd07104e8c9dbc2482b423c, type: 3}
 --- !u!1 &1123771785
 GameObject:
@@ -1211,7 +1242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1296211183}
   - component: {fileID: 1296211184}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (1)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -1254,29 +1285,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 13, y: 13, z: 1}
   m_Center: {x: 0, y: 0, z: -1.2}
---- !u!1 &1331758480 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 649e3681ffd07104e8c9dbc2482b423c, type: 3}
-  m_PrefabInstance: {fileID: 1114127477}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1331758481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331758480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647a98da66073ee49a565c60a1a562b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidad: {x: 1, y: 1, z: 1}
-  tiempoparallegar: 2
-  nodo: {fileID: 1944755458361052241}
-  nodo1: {fileID: 1441215306}
-  nodo2: {fileID: 334890876}
-  nodo3: {fileID: 2074881944}
 --- !u!1001 &1441215305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1341,13 +1349,37 @@ PrefabInstance:
     - {fileID: -7674279882695468498, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9211495179898292172, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1441215307}
   m_SourcePrefab: {fileID: 100100000, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
 --- !u!4 &1441215306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3731026013858160640, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
   m_PrefabInstance: {fileID: 1441215305}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1441215307
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45347627}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1445961728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,11 +1507,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LinternaPlayer: {fileID: 1445961730}
-  LifeLintern: 100
-  currentLife: 0
-  TiempoParaEncontrarBateriaNueva: 5
   PilaPrefab: {fileID: 6045001199012246947, guid: ec7eeb2e04ed14044b41a200ad14c664, type: 3}
   monstruo: {fileID: 2100392688}
+  LifeLintern: 100
+  currentLife: 0
+  distanciaMonstruo: 5
+  velocidadPerdidaVida: 2
+  TiempoParaEncontrarBateriaNueva: 5
   tiempoStunLinterna: 5
 --- !u!114 &1445961732
 MonoBehaviour:
@@ -6347,6 +6381,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Linterna: {fileID: 1445961731}
+--- !u!1 &1520244501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9211495179898292172, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
+  m_PrefabInstance: {fileID: 1944755458361052240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1560688262
 GameObject:
   m_ObjectHideFlags: 0
@@ -6357,7 +6396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1560688263}
   - component: {fileID: 1560688264}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (7)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -6410,7 +6449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1569101778}
   - component: {fileID: 1569101779}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (10)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -6621,6 +6660,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1707920250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2422315340263230684, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
+  m_PrefabInstance: {fileID: 2055262379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1707920254
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707920250}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.2, y: 2.8, z: 11.676955}
+  m_Center: {x: 98.2, y: 11.429475, z: 5.838481}
 --- !u!1 &1710502637
 GameObject:
   m_ObjectHideFlags: 0
@@ -6631,7 +6696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1710502638}
   - component: {fileID: 1710502639}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (13)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -6893,7 +6958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1820383025}
   - component: {fileID: 1820383026}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -6946,7 +7011,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1839831384}
   - component: {fileID: 1839831385}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (4)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -7022,6 +7087,58 @@ Transform:
   - {fileID: 2120392382}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1911668807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9211495179898292172, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
+  m_PrefabInstance: {fileID: 2074881943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1919242858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7742780737561719692, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
+  m_PrefabInstance: {fileID: 2055262379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1919242862
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919242858}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.79, y: 23.534367, z: 16.224636}
+  m_Center: {x: -7.3, y: -6.363318, z: 7.6319375}
+--- !u!65 &1919242863
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919242858}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 25.60004, y: 9.8, z: 16.224636}
+  m_Center: {x: 0.8126774, y: 0.39, z: 7.6319375}
 --- !u!1 &1954874746
 GameObject:
   m_ObjectHideFlags: 0
@@ -7032,7 +7149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1954874747}
   - component: {fileID: 1954874748}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (14)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -7180,7 +7297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7700947153936857276, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -109.19998
+      value: -82.8999
       objectReference: {fileID: 0}
     - target: {fileID: -7700947153936857276, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7188,7 +7305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7700947153936857276, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -94.4
+      value: -71.60001
       objectReference: {fileID: 0}
     - target: {fileID: -6516126627314317563, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalScale.x
@@ -7204,7 +7321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6516126627314317563, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -109.20009
+      value: -82.9
       objectReference: {fileID: 0}
     - target: {fileID: -6516126627314317563, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7212,7 +7329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6516126627314317563, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -94.4
+      value: -71.6
       objectReference: {fileID: 0}
     - target: {fileID: -511310931620521848, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalScale.x
@@ -7228,7 +7345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -511310931620521848, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.9
+      value: -8.1
       objectReference: {fileID: 0}
     - target: {fileID: -511310931620521848, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7268,7 +7385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3291460997423930385, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -109.2
+      value: -82.89992
       objectReference: {fileID: 0}
     - target: {fileID: 3291460997423930385, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7276,7 +7393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3291460997423930385, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -94.40002
+      value: -71.60003
       objectReference: {fileID: 0}
     - target: {fileID: 3385559335531484808, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       propertyPath: m_IsActive
@@ -7310,6 +7427,15 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7742780737561719692, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1919242863}
+    - targetCorrespondingSourceObject: {fileID: 7742780737561719692, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1919242862}
+    - targetCorrespondingSourceObject: {fileID: -2422315340263230684, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1707920254}
     - targetCorrespondingSourceObject: {fileID: 3385559335531484808, guid: 1fd466bbc07901044ac53aeaf686b1d5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1178119209}
@@ -7378,13 +7504,37 @@ PrefabInstance:
     - {fileID: -7674279882695468498, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9211495179898292172, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2074881945}
   m_SourcePrefab: {fileID: 100100000, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
 --- !u!4 &2074881944 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3731026013858160640, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
   m_PrefabInstance: {fileID: 2074881943}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2074881945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911668807}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2075575260
 GameObject:
   m_ObjectHideFlags: 0
@@ -7395,7 +7545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2075575261}
   - component: {fileID: 2075575262}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PointForStun (8)
   m_TagString: StunMonster
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -7587,7 +7737,7 @@ MonoBehaviour:
   distanciaAtaque: 2
   distanciaVision: 50
   tiempoStunMaximo: 120
-  tiempoparallegar: 3
+  tiempoparallegar: 2
   numRayos: 10
   anguloTotal: 45
   velocidad: {x: 1, y: 1, z: 1}
@@ -7800,7 +7950,19 @@ MonoBehaviour:
     m_ActionId: 2ebcaf4e-8399-460f-9b63-0653518d9399
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2120392384}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnRuning
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: fa725531-f470-45f5-a264-0fa051803331
     m_ActionName: Player/Look
   - m_PersistentCalls:
@@ -7880,13 +8042,37 @@ PrefabInstance:
     - {fileID: -7674279882695468498, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9211495179898292172, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1944755458361052242}
   m_SourcePrefab: {fileID: 100100000, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
 --- !u!4 &1944755458361052241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3731026013858160640, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
   m_PrefabInstance: {fileID: 1944755458361052240}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1944755458361052242
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520244501}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

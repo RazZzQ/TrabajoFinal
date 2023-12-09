@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     public float verticalSpeed = 10f;
     public float clampAngle = 80f;
     public float speed = 5f;
-    private float speedModify = 7f;
 
     public PlayerMovement player;
     public CinemachineVirtualCamera Camera;
@@ -57,11 +56,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            speed = speedModify;
+            speed = 7f;
         }
         else if (context.canceled)
         {
-            speedModify = speed;
+            speed = 5f;
         }
     }
 }

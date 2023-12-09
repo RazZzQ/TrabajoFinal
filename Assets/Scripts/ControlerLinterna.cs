@@ -6,16 +6,23 @@ using UnityEngine.InputSystem;
 
 public class ControlerLinterna : MonoBehaviour
 {
+    //Referencias
     public Light LinternaPlayer;
     ParticleSystem particulas;
-    public float LifeLintern = 100;
-    public float currentLife = 0;
-    public float TiempoParaEncontrarBateriaNueva = 5;
-
-    //componentesAparte
     public GameObject PilaPrefab;
     public MonsterControler monstruo;
-    public float tiempoStunLinterna = 5f;
+
+    //Variables para la vida
+    public float LifeLintern = 100;
+    public float currentLife = 0;
+    public float distanciaMonstruo = 5f;
+    public float velocidadPerdidaVida = 2f;
+    public float TiempoParaEncontrarBateriaNueva = 5;
+
+    //variables para el aturdimiento
+    public float CurrentTimeStun = 0f;
+    public float TimeNecesaryForStun = 5f;
+
 
     //eventos
     public event Action OnLifeHalfLintern;
@@ -27,7 +34,6 @@ public class ControlerLinterna : MonoBehaviour
     //booleanos
     private bool canToggleFlashlight = true;
     private bool bateriaInstanciada = false;
-    private bool OnEnableOnce = false;
 
     private void Start()
     {
@@ -37,6 +43,12 @@ public class ControlerLinterna : MonoBehaviour
     private void Update()
     {
         flashlightflashing();
+
+        if (monstruo != null && Vector3.Distance(monstruo.transform.position, transform.position) < distanciaMonstruo)
+        {
+            // Disminuir la vida de la linterna con una velocidad determinada
+            currentLife -= velocidadPerdidaVida * Time.deltaTime;
+        }
     }
 
     private void OnEnable()
@@ -121,8 +133,6 @@ public class ControlerLinterna : MonoBehaviour
         // Iniciar temporizador para encontrar la batería
         StartCoroutine(FindBatteryTimer());
     }
-
-
     private void InstantiateBattery(Vector3 position)
     {
         if (!bateriaInstanciada)
@@ -131,16 +141,11 @@ public class ControlerLinterna : MonoBehaviour
             bateriaInstanciada = true;
         }
     }
-
     private IEnumerator FindBatteryTimer()
     {
         yield return new WaitForSeconds(TiempoParaEncontrarBateriaNueva);
         Debug.Log("Perdiste");
         // Si el jugador no encuentra la batería a tiempo, ejecuta el evento correspondiente
         OnFailedToFindBattery?.Invoke();
-    }
-    public void DamagePlayer(int damage)
-    {
-        LifeLintern -= damage;
     }
 }
