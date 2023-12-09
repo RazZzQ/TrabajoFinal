@@ -91,6 +91,16 @@ public class ControlerLinterna : MonoBehaviour
             }
         }
     }
+    public void OnPressE(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+
+            }
+        }
+    }
     public void flashlightflashing()
     {
         if (currentLife <= 0)
