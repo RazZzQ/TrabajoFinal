@@ -46,18 +46,17 @@ public class MonsterControler : MonoBehaviour
     //Vision
     public int numRayos = 10;
     public float anguloTotal = 180f;
-    
+
     //variablesStun
     public float stunTimer = 0f;
     public float stunForTime = 5f;
     public float tiempoStunMaximo = 120f;
 
-    
+
     //damage
     public int damage = 5;
 
     //boleanos
-    private bool onEnterLintern = false;
     private bool isStunned = false;
     private bool isPlayerInVision = false;
 
@@ -69,13 +68,14 @@ public class MonsterControler : MonoBehaviour
 
     //Eventos
     public event Action OnStun;
-    
+
     //lista y nodos
 
     public Transform nodo;
     public Transform nodo1;
     public Transform nodo2;
     public Transform nodo3;
+
     private void Start()
     {
         linkedList = new LinkedList();
@@ -90,15 +90,50 @@ public class MonsterControler : MonoBehaviour
     {
         if (isPlayerInVision)
         {
-            MoveToPlayer();
+            if (!isStunned)
+            {
+                MoveToPlayer();
+            }
         }
         else
         {
-            MoveToNode();
+            if (!isStunned)
+            {
+                MoveToNode();
+            }
         }
 
         VisionPlayer();
+
+        if (isStunned)
+        {
+            HandleStun();
+        }
     }
+    private void HandleStun()
+    {
+        if (stunTimer > 0)
+        {
+            stunTimer -= Time.deltaTime;
+        }
+        else
+        {
+            isStunned = false;
+
+            // Aquí puedes añadir la lógica para que el monstruo se quede parado durante un tiempo aleatorio
+            float randomStunDuration = UnityEngine.Random.Range(10f, tiempoStunMaximo);
+            StartCoroutine(StunCoroutine(randomStunDuration));
+
+            OnStun.Invoke();
+        }
+    }
+
+    private IEnumerator StunCoroutine(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        // Lógica para cuando el monstruo deja de estar aturdido
+    }
+
     private void MoveToPlayer()
     {
         if (player != null)
@@ -162,25 +197,33 @@ public class MonsterControler : MonoBehaviour
     {
         if (other.CompareTag("Node"))
         {
+            Debug.Log("Colision");
             currentNode = currentNode.nextNode;
         }
         if (other.CompareTag("StunMonster"))
         {
             onEnterLintern = true;
-        }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("StunMonster"))
-        {
-
+            StartStunTimer();
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("StunMonster") == false)
+        if (other.CompareTag("StunMonster"))
         {
-
+            onEnterLintern = false;
+            ResetStunTimer();
         }
+    }
+
+    private void StartStunTimer()
+    {
+        stunTimer = stunForTime;
+        isStunned = true;
+    }
+
+    private void ResetStunTimer()
+    {
+        stunTimer = 0f;
+        isStunned = false;
     }
 }

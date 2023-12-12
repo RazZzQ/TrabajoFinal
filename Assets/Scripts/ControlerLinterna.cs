@@ -78,6 +78,8 @@ public class ControlerLinterna : MonoBehaviour
                 {                    
                     particulas.Stop();
                     LinternaPlayer.enabled = false;
+                    SliderLife.handleRect.gameObject.SetActive(false);
+
 
                     OnLinternOff?.Invoke();
                 }
@@ -85,6 +87,8 @@ public class ControlerLinterna : MonoBehaviour
                 {
                     particulas.Play();
                     LinternaPlayer.enabled = true;
+                    SliderLife.handleRect.gameObject.SetActive(true);
+
 
                     OnLinternOn?.Invoke();
                 }
