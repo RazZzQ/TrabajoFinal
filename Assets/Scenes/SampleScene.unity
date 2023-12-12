@@ -8161,14 +8161,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanciaAtaque: 2
   distanciaVision: 50
-  tiempoStunMaximo: 120
   tiempoparallegar: 2
-  numRayos: 10
-  anguloTotal: 45
   velocidad: {x: 1, y: 1, z: 1}
   layer:
     serializedVersion: 2
     m_Bits: 1
+  numRayos: 10
+  anguloTotal: 45
+  stunTimer: 0
+  stunForTime: 5
+  tiempoStunMaximo: 120
   damage: 5
   linterna: {fileID: 1445961731}
   player: {fileID: 2120392384}
@@ -8260,6 +8262,8 @@ MonoBehaviour:
   speed: 5
   player: {fileID: 2120392384}
   Camera: {fileID: 1711031418}
+  ObjetosNecesario: []
+  ObjetosEspeciales: []
 --- !u!136 &2120392385
 CapsuleCollider:
   m_ObjectHideFlags: 0

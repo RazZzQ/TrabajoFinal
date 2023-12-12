@@ -39,17 +39,25 @@ public class MonsterControler : MonoBehaviour
     //variables
     public float distanciaAtaque = 2f;
     public float distanciaVision = 5f;
-    public float tiempoStunMaximo = 120f;
     public float tiempoparallegar;
-    public int numRayos = 10;
-    public float anguloTotal = 180f;
-    private float stunTimer = 0f;
     public Vector3 velocidad;
     public LayerMask layer;
+
+    //Vision
+    public int numRayos = 10;
+    public float anguloTotal = 180f;
     
+    //variablesStun
+    public float stunTimer = 0f;
+    public float stunForTime = 5f;
+    public float tiempoStunMaximo = 120f;
+
+    
+    //damage
     public int damage = 5;
 
     //boleanos
+    private bool onEnterLintern = false;
     private bool isStunned = false;
     private bool isPlayerInVision = false;
 
@@ -155,6 +163,24 @@ public class MonsterControler : MonoBehaviour
         if (other.CompareTag("Node"))
         {
             currentNode = currentNode.nextNode;
+        }
+        if (other.CompareTag("StunMonster"))
+        {
+            onEnterLintern = true;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("StunMonster"))
+        {
+
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("StunMonster") == false)
+        {
+
         }
     }
 }
