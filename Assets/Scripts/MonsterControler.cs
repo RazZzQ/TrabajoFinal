@@ -75,6 +75,20 @@ public class MonsterControler : MonoBehaviour
     public Transform nodo1;
     public Transform nodo2;
     public Transform nodo3;
+    public Transform nodo4;
+    public Transform nodo5;
+    public Transform nodo6;
+    public Transform nodo7;
+    public Transform nodo8;
+    public Transform nodo9;
+    public Transform nodo10;
+    public Transform nodo11;
+    public Transform nodo12;
+    public Transform nodo13;
+    public Transform nodo14;
+    public Transform nodo15;
+
+
 
     private void Start()
     {
@@ -85,6 +99,18 @@ public class MonsterControler : MonoBehaviour
         linkedList.AddNode(nodo1);
         linkedList.AddNode(nodo2);
         linkedList.AddNode(nodo3);
+        linkedList.AddNode(nodo4);
+        linkedList.AddNode(nodo5);
+        linkedList.AddNode(nodo6);
+        linkedList.AddNode(nodo7);
+        linkedList.AddNode(nodo8);
+        linkedList.AddNode(nodo9);
+        linkedList.AddNode(nodo10);
+        linkedList.AddNode(nodo11);
+        linkedList.AddNode(nodo12);
+        linkedList.AddNode(nodo13);
+        linkedList.AddNode(nodo14);
+        linkedList.AddNode(nodo15);
     }
     private void Update()
     {
@@ -202,7 +228,6 @@ public class MonsterControler : MonoBehaviour
         }
         if (other.CompareTag("StunMonster"))
         {
-            onEnterLintern = true;
             StartStunTimer();
         }
     }
@@ -210,7 +235,6 @@ public class MonsterControler : MonoBehaviour
     {
         if (other.CompareTag("StunMonster"))
         {
-            onEnterLintern = false;
             ResetStunTimer();
         }
     }
