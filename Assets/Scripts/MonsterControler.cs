@@ -150,7 +150,7 @@ public class MonsterControler : MonoBehaviour
             float randomStunDuration = UnityEngine.Random.Range(10f, tiempoStunMaximo);
             StartCoroutine(StunCoroutine(randomStunDuration));
 
-            OnStun.Invoke();
+            OnStun?.Invoke();
         }
     }
 
