@@ -70,7 +70,6 @@ public class MonsterControler : MonoBehaviour
     public event Action OnStun;
 
     //lista y nodos
-
     public Transform nodo;
     public Transform nodo1;
     public Transform nodo2;
@@ -87,7 +86,16 @@ public class MonsterControler : MonoBehaviour
     public Transform nodo13;
     public Transform nodo14;
     public Transform nodo15;
-
+    public Transform nodo16;
+    public Transform nodo17;
+    public Transform nodo18;
+    public Transform nodo19;
+    public Transform nodo20;
+    public Transform nodo21;
+    public Transform nodo22;
+    public Transform nodo23;
+    public Transform nodo24;
+    public Transform nodo25;
 
 
     private void Start()
@@ -111,6 +119,16 @@ public class MonsterControler : MonoBehaviour
         linkedList.AddNode(nodo13);
         linkedList.AddNode(nodo14);
         linkedList.AddNode(nodo15);
+        linkedList.AddNode(nodo16);
+        linkedList.AddNode(nodo17);
+        linkedList.AddNode(nodo18);
+        linkedList.AddNode(nodo19);
+        linkedList.AddNode(nodo20);
+        linkedList.AddNode(nodo21);
+        linkedList.AddNode(nodo22);
+        linkedList.AddNode(nodo23);
+        linkedList.AddNode(nodo24);
+        linkedList.AddNode(nodo25);
     }
     private void Update()
     {

@@ -7,14 +7,16 @@ TagManager:
   - Node
   - Mounstro
   - StunMonster
+  - Objeto
+  - Pila
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Lines
   - Water
   - UI
-  - 
+  - Objetos
   - 
   - 
   - 

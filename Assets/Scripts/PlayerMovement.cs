@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using TMPro;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,16 +11,32 @@ public class PlayerMovement : MonoBehaviour
     public float verticalSpeed = 10f;
     public float clampAngle = 80f;
     public float speed = 5f;
+
     //movimiento camara
     private Vector3 movement;
     private Vector3 camForward;
-    private Vector3 camRight; 
+    private Vector3 camRight;
+
     //referencias
     public PlayerMovement player;
     public CinemachineVirtualCamera Camera;
     public Objeto[] ObjetosNecesario;
     public ObjetoEspecial[] ObjetosEspeciales;
     private Rigidbody playerRigidbody;
+    public LineRenderer lineRenderer;
+    public ControlerLinterna linterna;
+    public LayerMask interactableLayer;
+    public TextMeshProUGUI ObjetosNecesarios;
+    public TextMeshProUGUI mensajePresionaE;
+    public Material Cura;
+    public Material Objeto;
+    RaycastHit hit;
+
+    //variables
+    private int currentObjectForWin = 0;
+    public int objectFull;
+    public float TimeTextVisible = 3;
+    public float MaxDistanceRay = 1;
 
     private void Start()
     {
@@ -28,6 +46,29 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         playerRigidbody.velocity = movement * speed;
+    }
+    private void Update()
+    {
+ 
+        if (Physics.Raycast(Camera.transform.position, Camera.transform.forward, out hit, MaxDistanceRay, interactableLayer))
+        {
+            Debug.DrawRay(transform.position, Camera.transform.forward * hit.distance, Color.red);
+
+            // Mostrar mensaje y cambiar el material del LineRenderer
+            mensajePresionaE.text = "Presiona E para agarrar";
+            lineRenderer.enabled = true;
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, hit.point);
+
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, Camera.transform.forward * MaxDistanceRay, Color.white);
+
+            // Ocultar el mensaje y desactivar el LineRenderer
+            mensajePresionaE.text = "";
+            lineRenderer.enabled = false;
+        }
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -69,10 +110,41 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E))
             {
-
+                InteractWithObject(hit.collider.gameObject);
             }
         }
+    }
+    private void InteractWithObject(GameObject obj)
+    {
+        // Puedes usar el tag para determinar el tipo de objeto y realizar la acción correspondiente
+        if (obj.CompareTag("Pila"))
+        {
+            Destroy(obj);
+            lineRenderer.material = Cura;
+            linterna.currentLife = 100;
+            linterna.SliderLife.value = linterna.currentLife;
+        }
+        else if (obj.CompareTag("Objeto"))
+        {
+            lineRenderer.material = Objeto;
+            Destroy(obj);
+            currentObjectForWin++;
+            int objetosFaltantes = ObjetosNecesario.Length - currentObjectForWin;
+
+            // Muestra el texto en el objeto TextMeshPro sin utilizar {$} ni {0}
+            ObjetosNecesarios.text = "Objetos: " + currentObjectForWin + "/" + ObjetosNecesario.Length + "\nFaltantes: " + objetosFaltantes;
+
+            // Después de unos segundos, borra el texto
+            StartCoroutine(ClearTextAfterDelay(TimeTextVisible));
+        }
+    }
+    private IEnumerator ClearTextAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Borra el texto
+        ObjetosNecesarios.text = "";
     }
 }
