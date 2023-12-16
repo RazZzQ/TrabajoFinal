@@ -338,8 +338,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500ee3712d0e91e468c31b8b362613f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configuracionesLaberintos:
-  - {fileID: 5224612477400371472, guid: f3ef7bc78bf649c419916953466207c6, type: 3}
+  tiempoEntreCambios: 5
+  tiempoTranscurrido: 0
+  lab1: {fileID: 5224612477400371472, guid: f3ef7bc78bf649c419916953466207c6, type: 3}
+  lab2: {fileID: 6068090430465128063, guid: e7ed9432e81c9644bb12b068ee45dd0f, type: 3}
+  lab3: {fileID: 1508325352438522140, guid: 33379ada8a34b9c4fb7792142809db6f, type: 3}
+  lab4: {fileID: 5897324136663163924, guid: 876049862d35ee84783c17026fde36b9, type: 3}
+  lab5: {fileID: 2347696899724938874, guid: 5e7be0282f1de4a4eb09217fda04f4b8, type: 3}
 --- !u!4 &1699469967
 Transform:
   m_ObjectHideFlags: 0
@@ -349,7 +354,7 @@ Transform:
   m_GameObject: {fileID: 1699469965}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6116934, y: 6.931817, z: 2.6486378}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

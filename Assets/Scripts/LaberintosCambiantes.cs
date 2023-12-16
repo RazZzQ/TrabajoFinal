@@ -4,53 +4,77 @@ using UnityEngine;
 
 public class LaberintosCambiantes : MonoBehaviour
 {
-    public GameObject[] configuracionesLaberintos; // Prefabs de los laberintos
-    private ListaCircular<GameObject> listaCircular = new ListaCircular<GameObject>();
-    private float tiempoUltimoCambio;
+    private CircularList circularList;
+    private bool playerEncontroSalida = false;
+    public float tiempoEntreCambios = 5f; // Tiempo en segundos entre cambios de laberinto
+    public float tiempoTranscurrido = 0f;
 
-    private void Start()
+    public GameObject lab1;
+    public GameObject lab2;
+    public GameObject lab3;
+    public GameObject lab4;
+    public GameObject lab5;
+
+    void Start()
     {
-        // Inicializar la lista circular con los prefabs de laberintos
-        listaCircular.InicializarListaCircular(configuracionesLaberintos);
+        circularList = new CircularList();
 
-        // Instanciar el laberinto actual
-        InstanciarLaberintoActual();
+        // Agrega algunos GameObjects iniciales a la lista circular
+        circularList.AddNode(lab1);
+        circularList.AddNode(lab2);
+        circularList.AddNode(lab3);
+        circularList.AddNode(lab4);
+        circularList.AddNode(lab5);
+
+        // Instancia el primer laberinto
+        InstantiateCurrentLaberinto();
     }
 
-    private void Update()
+    void Update()
     {
-        // Verificar si ha pasado el tiempo suficiente para cambiar el laberinto
-        if (Time.time - tiempoUltimoCambio > ObtenerTiempoDeCambioActual())
+        // Actualiza el tiempo transcurrido
+        tiempoTranscurrido += Time.deltaTime;
+
+        // Cambia el laberinto automáticamente si el jugador aún no ha encontrado la salida y ha pasado el tiempo especificado
+        if (!playerEncontroSalida && tiempoTranscurrido >= tiempoEntreCambios)
         {
             CambiarLaberinto();
+            tiempoTranscurrido = 0f; // Reinicia el contador de tiempo
         }
     }
 
-    private void InstanciarLaberintoActual()
+    void InstantiateCurrentLaberinto()
     {
-        // Instanciar el prefab del laberinto actual en la escena
-        GameObject laberintoActualPrefab = listaCircular.ObtenerElementoActual();
-        Instantiate(laberintoActualPrefab, transform.position, Quaternion.identity);
+        GameObject currentLaberintoPrefab = circularList.GetCurrentLaberintoPrefab();
+        if (currentLaberintoPrefab != null)
+        {
+            // Destruye la instancia anterior (si existe)
+            if (circularList.GetCurrentNode().CurrentLaberintoInstance != null)
+            {
+                Destroy(circularList.GetCurrentNode().CurrentLaberintoInstance);
+            }
 
-
-        tiempoUltimoCambio = Time.time;
+            // Instancia el nuevo laberinto
+            circularList.GetCurrentNode().CurrentLaberintoInstance = Instantiate(currentLaberintoPrefab, Vector3.zero, Quaternion.identity);
+        }
     }
 
-    private void CambiarLaberinto()
+    void CambiarLaberinto()
     {
-        // Avanzar al siguiente laberinto en la lista circular
-        listaCircular.Avanzar();
+        // Implementa la lógica para cambiar el laberinto
+        Debug.Log("Cambiando laberinto");
 
-        // Destruir el laberinto actual
-        Destroy(GameObject.FindGameObjectWithTag("Laberinto"));
+        // Rota la lista para obtener el próximo laberinto en el siguiente ciclo
+        circularList.RotateList();
 
-        // Instanciar el nuevo laberinto
-        InstanciarLaberintoActual();
+        // Instancia el nuevo laberinto
+        InstantiateCurrentLaberinto();
     }
 
-    private float ObtenerTiempoDeCambioActual()
+    // Esta función podría ser llamada cuando el jugador encuentra la salida
+    public void JugadorEncontroSalida()
     {
-        // Puedes personalizar la lógica para obtener el tiempo de cambio actual según tus necesidades
-        return 5.0f; // Ejemplo: cada 5 segundos
+        playerEncontroSalida = true;
+        // Puedes realizar acciones adicionales cuando el jugador encuentra la salida
     }
 }

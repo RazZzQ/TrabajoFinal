@@ -1,56 +1,66 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ListaCircular<T>
+public class CircularListNode
 {
-    private Nodo<T> cabeza;
-    private Nodo<T> nodoActual;
+    public GameObject LaberintoPrefab;
+    public GameObject CurrentLaberintoInstance;
+    public CircularListNode Next;
 
-    public void InicializarListaCircular(T[] elementos)
+    public CircularListNode(GameObject laberintoPrefab)
     {
-        if (elementos == null || elementos.Length == 0)
-        {
-            Debug.LogError("La lista circular debe tener al menos un elemento.");
-            return;
-        }
+        LaberintoPrefab = laberintoPrefab;
+        Next = this;
+    }
+}
+public class CircularList
+{
+    private CircularListNode head;
 
-        cabeza = new Nodo<T>(elementos[0]);
-        Nodo<T> nodoActual = cabeza;
-
-        for (int i = 1; i < elementos.Length; i++)
-        {
-            nodoActual.Siguiente = new Nodo<T>(elementos[i]);
-            nodoActual = nodoActual.Siguiente;
-        }
-
-        nodoActual.Siguiente = cabeza; // Hacer que el último nodo apunte al primer nodo
+    public CircularList()
+    {
+        head = null;
     }
 
-    public T ObtenerElementoActual()
+    public void AddNode(GameObject laberintoPrefab)
     {
-        return nodoActual.Dato;
+        CircularListNode newNode = new CircularListNode(laberintoPrefab);
+
+        if (head == null)
+        {
+            head = newNode;
+        }
+        else
+        {
+            CircularListNode lastNode = GetLastNode();
+            newNode.Next = head;
+            lastNode.Next = newNode;
+        }
     }
 
-    public void Avanzar()
+    private CircularListNode GetLastNode()
     {
-        if (cabeza == null)
+        CircularListNode temp = head;
+        while (temp.Next != head)
         {
-            Debug.LogError("La lista circular está vacía o no se ha inicializado.");
-            return;
+            temp = temp.Next;
         }
-
-        nodoActual = nodoActual.Siguiente;
+        return temp;
     }
 
-    private class Nodo<T>
+    public void RotateList()
     {
-        public T Dato;
-        public Nodo<T> Siguiente;
-
-        public Nodo(T dato)
+        if (head != null)
         {
-            Dato = dato;
-            Siguiente = null;
+            head = head.Next;
         }
+    }
+
+    public GameObject GetCurrentLaberintoPrefab()
+    {
+        return head != null ? head.LaberintoPrefab : null;
+    }
+    public CircularListNode GetCurrentNode()
+    {
+        return head;
     }
 }

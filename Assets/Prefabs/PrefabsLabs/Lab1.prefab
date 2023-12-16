@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lab1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c098f2ebb7f13904c9106f725267408f, type: 3}
+      propertyPath: m_TagString
+      value: Laberinto
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

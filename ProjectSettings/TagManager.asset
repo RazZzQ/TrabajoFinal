@@ -9,6 +9,7 @@ TagManager:
   - StunMonster
   - Objeto
   - Pila
+  - Laberinto
   layers:
   - Default
   - TransparentFX
