@@ -156,10 +156,6 @@ public class ControlerLinterna : MonoBehaviour
         if (!bateriaInstanciada)
         {
             Instantiate(PilaPrefab, position, Quaternion.identity);
-            BoxCollider boxCollider = PilaPrefab.AddComponent<BoxCollider>();
-
-            // Asignar un tag específico al objeto instanciado
-            PilaPrefab.tag = "Pila";
             bateriaInstanciada = true;
         }
     }

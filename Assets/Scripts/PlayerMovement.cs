@@ -124,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(obj);
             lineRenderer.material = Cura;
             linterna.currentLife = 100;
+            linterna.SliderLife.fillRect.gameObject.SetActive(true);
             linterna.SliderLife.value = linterna.currentLife;
         }
         else if (obj.CompareTag("Objeto"))
