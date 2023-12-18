@@ -36,6 +36,7 @@ public class ControlerLinterna : MonoBehaviour
     //booleanos
     private bool canToggleFlashlight = true;
     private bool bateriaInstanciada = false;
+    private bool hasFailedToFindBattery = false;
 
 
     private void Start()
@@ -75,7 +76,7 @@ public class ControlerLinterna : MonoBehaviour
             if (Input.GetButtonDown("LinternOnOff") && canToggleFlashlight)
             {
                 if (LinternaPlayer.enabled == true)
-                {                    
+                {
                     particulas.Stop();
                     LinternaPlayer.enabled = false;
                     SliderLife.handleRect.gameObject.SetActive(false);
@@ -163,7 +164,13 @@ public class ControlerLinterna : MonoBehaviour
     {
         yield return new WaitForSeconds(TiempoParaEncontrarBateriaNueva);
         Debug.Log("Perdiste");
-        // Si el jugador no encuentra la batería a tiempo, ejecuta el evento correspondiente
-        OnFailedToFindBattery?.Invoke();
+        if (!hasFailedToFindBattery)
+        {
+            // Ejecutar el evento
+            OnFailedToFindBattery?.Invoke();
+
+            // Cambiar el booleano para indicar que el evento ya se ejecutó
+            hasFailedToFindBattery = true;
+        }
     }
 }

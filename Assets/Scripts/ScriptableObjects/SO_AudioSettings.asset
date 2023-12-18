@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicVolume: 1
   sfxVolume: 1
+  sfxClips:
+  - {fileID: 8300000, guid: 0509b201918f57848a0359c990ae21cd, type: 3}
+  - {fileID: 8300000, guid: d5594cac1336ffd40bb42b1c64acd4f9, type: 3}
+  - {fileID: 8300000, guid: 7ba7cd834f26002438df46e972f72f5f, type: 3}
+  - {fileID: 8300000, guid: e4bf64a9c6482b14d913960d39766075, type: 3}
+  - {fileID: 8300000, guid: 1f5a46c692613dd4797f1c4e7c737600, type: 3}

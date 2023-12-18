@@ -7,4 +7,5 @@ public class SO_Audio : ScriptableObject
 {
     public float musicVolume = 1f;
     public float sfxVolume = 1f;
+    public AudioClip[] sfxClips; // Lista de clips de audio para efectos de sonido
 }
