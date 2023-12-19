@@ -14740,7 +14740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanciaAtaque: 2
   distanciaVision: 50
-  tiempoparallegar: 2
+  tiempoparallegar: 0.4
   velocidad: {x: 1, y: 1, z: 1}
   layer:
     serializedVersion: 2
@@ -15334,7 +15334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4160979763195994799, guid: b33fc12af9c7c2546af1f1491b88d9c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7
+      value: -0.981
       objectReference: {fileID: 0}
     - target: {fileID: 4160979763195994799, guid: b33fc12af9c7c2546af1f1491b88d9c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15342,7 +15342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4160979763195994799, guid: b33fc12af9c7c2546af1f1491b88d9c7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4160979763195994799, guid: b33fc12af9c7c2546af1f1491b88d9c7, type: 3}
       propertyPath: m_LocalRotation.w
