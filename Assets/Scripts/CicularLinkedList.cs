@@ -3,12 +3,14 @@ using UnityEngine;
 public class CircularListNode
 {
     public GameObject LaberintoPrefab;
+    public GameObject TeleportPoint;
     public GameObject CurrentLaberintoInstance;
     public CircularListNode Next;
 
-    public CircularListNode(GameObject laberintoPrefab)
+    public CircularListNode(GameObject laberintoPrefab, GameObject teleportPoint)
     {
         LaberintoPrefab = laberintoPrefab;
+        TeleportPoint = teleportPoint;
         Next = this;
     }
 }
@@ -21,9 +23,9 @@ public class CircularList
         head = null;
     }
 
-    public void AddNode(GameObject laberintoPrefab)
+    public void AddNode(GameObject laberintoPrefab, GameObject teleportPoint)
     {
-        CircularListNode newNode = new CircularListNode(laberintoPrefab);
+        CircularListNode newNode = new CircularListNode(laberintoPrefab, teleportPoint);
 
         if (head == null)
         {

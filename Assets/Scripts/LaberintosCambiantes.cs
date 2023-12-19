@@ -14,20 +14,28 @@ public class LaberintosCambiantes : MonoBehaviour
     public GameObject lab3;
     public GameObject lab4;
     public GameObject lab5;
+    public GameObject teleportPoint1;
+    public GameObject teleportPoint2;
+    public GameObject teleportPoint3;
+    public GameObject teleportPoint4;
+    public GameObject teleportPoint5;
+
+    public GameObject jugador;
 
     void Start()
     {
         circularList = new CircularList();
 
         // Agrega algunos GameObjects iniciales a la lista circular
-        circularList.AddNode(lab1);
-        circularList.AddNode(lab2);
-        circularList.AddNode(lab3);
-        circularList.AddNode(lab4);
-        circularList.AddNode(lab5);
+        circularList.AddNode(lab1, teleportPoint1);
+        circularList.AddNode(lab2, teleportPoint2);
+        circularList.AddNode(lab3, teleportPoint3);
+        circularList.AddNode(lab4, teleportPoint4);
+        circularList.AddNode(lab5, teleportPoint5);
 
         // Instancia el primer laberinto
         InstantiateCurrentLaberinto();
+
     }
 
     void Update()
@@ -46,8 +54,11 @@ public class LaberintosCambiantes : MonoBehaviour
     void InstantiateCurrentLaberinto()
     {
         GameObject currentLaberintoPrefab = circularList.GetCurrentLaberintoPrefab();
-        if (currentLaberintoPrefab != null)
+        GameObject teleportPoint = circularList.GetCurrentNode().TeleportPoint;
+
+        if (currentLaberintoPrefab != null && teleportPoint != null)
         {
+            jugador.transform.position = teleportPoint.transform.position;
             // Destruye la instancia anterior (si existe)
             if (circularList.GetCurrentNode().CurrentLaberintoInstance != null)
             {
@@ -55,7 +66,7 @@ public class LaberintosCambiantes : MonoBehaviour
             }
 
             // Instancia el nuevo laberinto
-            circularList.GetCurrentNode().CurrentLaberintoInstance = Instantiate(currentLaberintoPrefab, Vector3.zero, Quaternion.identity);
+            circularList.GetCurrentNode().CurrentLaberintoInstance = Instantiate(currentLaberintoPrefab, currentLaberintoPrefab.transform.position, Quaternion.identity);
         }
     }
 
