@@ -76,7 +76,6 @@ public class PlayerTemporal : MonoBehaviour
         // Verifica si todos los objetos necesarios han sido recogidos
         if (currentObjectForWin == ObjetosNecesario.Length)
         {
-            //Cambia a la escena de "Ganar"
             SceneManager.LoadScene("Ganar");
         }
     }

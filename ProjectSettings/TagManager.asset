@@ -11,6 +11,7 @@ TagManager:
   - Pila
   - Laberinto
   - Moneda
+  - ObjetoEspecial
   layers:
   - Default
   - TransparentFX

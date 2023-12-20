@@ -2142,7 +2142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlerLinterna: {fileID: 1445961731}
-  Player: {fileID: 0}
+  Player: {fileID: 2120392384}
+  monsterControler: {fileID: 2100392688}
   audioManager: {fileID: 1447176946}
 --- !u!4 &368391791
 Transform:

@@ -6,7 +6,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerEscuela : MonoBehaviour
 {
     //Velocidad player
     public float horizontalSpeed = 10f;
@@ -20,9 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 camRight;
 
     //referencias
-    public PlayerMovement player;
+    public PlayerEscuela player;
     public CinemachineVirtualCamera Camera;
-    public Objeto[] ObjetosNecesario;
     public ObjetoEspecial[] ObjetosEspeciales;
     private Rigidbody playerRigidbody;
     public LineRenderer lineRenderer;
@@ -35,8 +34,7 @@ public class PlayerMovement : MonoBehaviour
     RaycastHit hit;
 
     //variables
-    private int currentObjectForWin = 0;
-    public int objectFull;
+    private int currentEspecialObject = 0;
     public float TimeTextVisible = 3;
     public float MaxDistanceRay = 1;
 
@@ -52,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
- 
+
         if (Physics.Raycast(Camera.transform.position, Camera.transform.forward, out hit, MaxDistanceRay, interactableLayer))
         {
             Debug.DrawRay(transform.position, Camera.transform.forward * hit.distance, Color.red);
@@ -62,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
             lineRenderer.enabled = true;
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, hit.point);
-
         }
         else
         {
@@ -72,9 +69,9 @@ public class PlayerMovement : MonoBehaviour
             mensajePresionaE.text = "";
             lineRenderer.enabled = false;
         }
-        if (currentObjectForWin == ObjetosNecesario.Length)
+        if (currentEspecialObject == ObjetosEspeciales.Length)
         {
-            //Cambia a la escena de "Ganar"
+            // Cambia a la escena de "Ganar"
             SceneManager.LoadScene("Ganar");
         }
     }
@@ -83,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 movementInput = context.ReadValue<Vector2>();
         movement = new Vector3(movementInput.x, 0f, movementInput.y);
-        
+
         movement.Normalize();
         camDirection();
 
@@ -118,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 InteractWithObject(hit.collider.gameObject);
             }
@@ -137,18 +134,14 @@ public class PlayerMovement : MonoBehaviour
             linterna.lifeReachedHalfEventTriggered = false;
             linterna.lifeReachedZeroEventTriggered = false;
         }
-        else if (obj.CompareTag("Objeto"))
+        else if (obj.CompareTag("ObjetoEspecial"))
         {
             lineRenderer.material = Objeto;
             Destroy(obj);
-            GrabObject?.Invoke();
-            currentObjectForWin++;
-            int objetosFaltantes = ObjetosNecesario.Length - currentObjectForWin;
+            currentEspecialObject++;
+            int ObjetosEspecialesRestantes = ObjetosEspeciales.Length - currentEspecialObject;
+            ObjetosNecesarios.text = "Objetos: " + currentEspecialObject + "/" + ObjetosEspeciales.Length + "\nFaltantes: " + ObjetosEspecialesRestantes;
 
-            // Muestra el texto en el objeto TextMeshPro sin utilizar {$} ni {0}
-            ObjetosNecesarios.text = "Objetos: " + currentObjectForWin + "/" + ObjetosNecesario.Length + "\nFaltantes: " + objetosFaltantes;
-
-            // Después de unos segundos, borra el texto
             StartCoroutine(ClearTextAfterDelay(TimeTextVisible));
         }
     }

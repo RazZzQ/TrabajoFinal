@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LaberintosCambiantes : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class LaberintosCambiantes : MonoBehaviour
     private bool playerEncontroSalida = false;
     public float tiempoEntreCambios = 5f; // Tiempo en segundos entre cambios de laberinto
     public float tiempoTranscurrido = 0f;
+    public TextMeshProUGUI countdownText;
+    private bool countdownStarted = false;
 
 
     public GameObject lab1;
@@ -43,14 +46,42 @@ public class LaberintosCambiantes : MonoBehaviour
         // Actualiza el tiempo transcurrido
         tiempoTranscurrido += Time.deltaTime;
 
+        // Inicia la cuenta regresiva si no ha comenzado y queda un tiempo menor o igual a 10 segundos
+        if (!countdownStarted && tiempoTranscurrido >= tiempoEntreCambios - 10f)
+        {
+            StartCountdown();
+        }
+
         // Cambia el laberinto automáticamente si el jugador aún no ha encontrado la salida y ha pasado el tiempo especificado
         if (!playerEncontroSalida && tiempoTranscurrido >= tiempoEntreCambios)
         {
             CambiarLaberinto();
             tiempoTranscurrido = 0f; // Reinicia el contador de tiempo
+            ResetCountdown(); // Reinicia la cuenta regresiva
+        }
+
+        // Actualiza el texto de la cuenta regresiva
+        if (countdownStarted)
+        {
+            UpdateCountdownText();
         }
     }
+    void StartCountdown()
+    {
+        countdownStarted = true;
+    }
 
+    void ResetCountdown()
+    {
+        countdownStarted = false;
+        countdownText.text = "";
+    }
+
+    void UpdateCountdownText()
+    {
+        float countdownTime = tiempoEntreCambios - tiempoTranscurrido;
+        countdownText.text = Mathf.Ceil(countdownTime).ToString();
+    }
     void InstantiateCurrentLaberinto()
     {
         GameObject currentLaberintoPrefab = circularList.GetCurrentLaberintoPrefab();
@@ -81,16 +112,8 @@ public class LaberintosCambiantes : MonoBehaviour
         // Instancia el nuevo laberinto
         InstantiateCurrentLaberinto();
     }
-
-    // Esta función podría ser llamada cuando el jugador encuentra la salida
     public void JugadorEncontroSalida()
     {
         playerEncontroSalida = true;
-        // Puedes realizar acciones adicionales cuando el jugador encuentra la salida
-    }
-    public void AumentarTiempoEntreCambios(float cantidad)
-    {
-        tiempoEntreCambios += cantidad;
-        Debug.Log("Tiempo entre cambios aumentado a: " + tiempoEntreCambios);
     }
 }

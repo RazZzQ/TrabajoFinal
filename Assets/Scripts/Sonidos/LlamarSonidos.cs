@@ -6,6 +6,7 @@ public class LlamarSonidos : MonoBehaviour
 {
     public ControlerLinterna controlerLinterna;
     public PlayerMovement Player;
+    public MonsterControler monsterControler;
     public AudioManager audioManager;
 
     private void OnEnable()
@@ -16,6 +17,7 @@ public class LlamarSonidos : MonoBehaviour
         controlerLinterna.OnFlashLigthOut += vidaLinternaCero;
         controlerLinterna.OnLifeHalfLintern += VidaMitad;
         Player.GrabObject += GrabObject;
+        monsterControler.OnStun += Stun;
     }
     private void OnDisable()
     {
@@ -25,6 +27,7 @@ public class LlamarSonidos : MonoBehaviour
         controlerLinterna.OnFlashLigthOut -= vidaLinternaCero;
         controlerLinterna.OnLifeHalfLintern -= VidaMitad;
         Player.GrabObject -= GrabObject;
+        monsterControler.OnStun -= Stun;
     }
     private void PlayFailedToFindBatterySound()
     {
@@ -72,6 +75,14 @@ public class LlamarSonidos : MonoBehaviour
         if (audioManager != null)
         {
             int sfxIndex = 6;
+            audioManager.PlaySFX(sfxIndex);
+        }
+    }
+    private void Stun()
+    {
+        if (audioManager != null)
+        {
+            int sfxIndex = 5;
             audioManager.PlaySFX(sfxIndex);
         }
     }
