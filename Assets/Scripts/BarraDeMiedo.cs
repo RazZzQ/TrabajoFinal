@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 
 public class BarraDeMiedo : MonoBehaviour
 {
     public Slider barraMiedoSlider;
-    public float perdidaPorTiempo = 5f; // Puedes ajustar estos valores según tus necesidades
+    public float perdidaPorTiempo = 2f; // Puedes ajustar estos valores según tus necesidades
     public SO_Puntaje scoreData;
 
     private float tiempoAnterior;
@@ -53,7 +55,6 @@ public class BarraDeMiedo : MonoBehaviour
     }
     void PerderJuego()
     {
-        // Implementa acciones cuando pierdes
-        Debug.Log("¡Perdiste!");
+        SceneManager.LoadScene("Perder");
     }
 }

@@ -8,8 +8,8 @@ public class ScreamersGenerador : MonoBehaviour
     public event Action OnScreamerGenerated;
 
     public BarraDeMiedo miedo;
-    public float tiempoEntreScreamersMin = 2f;
-    public float tiempoEntreScreamersMax = 5f;
+    public float tiempoEntreScreamersMin = 1f;
+    public float tiempoEntreScreamersMax = 10f;
     public float radioGeneracion = 5f;
     public float tiempoDeVidaScreamer = 2f;
 
@@ -23,10 +23,8 @@ public class ScreamersGenerador : MonoBehaviour
             Debug.LogError("El Transform del jugador no está asignado o no hay screamers disponibles.");
             return;
         }
-
-        Invoke("GenerarScreamer", UnityEngine.Random.Range(tiempoEntreScreamersMin, tiempoEntreScreamersMax));
+            Invoke("GenerarScreamer", UnityEngine.Random.Range(tiempoEntreScreamersMin, tiempoEntreScreamersMax));
     }
-
     void GenerarScreamer()
     {
         if (jugadorTransform == null || screamers.Length == 0)
@@ -53,5 +51,6 @@ public class ScreamersGenerador : MonoBehaviour
         Destroy(screamerInstance, tiempoDeVidaScreamer);
 
         OnScreamerGenerated?.Invoke();
+        Invoke("GenerarScreamer", UnityEngine.Random.Range(tiempoEntreScreamersMin, tiempoEntreScreamersMax));
     }
 }

@@ -37,6 +37,8 @@ public class ControlerLinterna : MonoBehaviour
     private bool canToggleFlashlight = true;
     private bool bateriaInstanciada = false;
     private bool hasFailedToFindBattery = false;
+    public bool lifeReachedZeroEventTriggered = false;
+    public bool lifeReachedHalfEventTriggered = false;
 
 
     private void Start()
@@ -98,23 +100,26 @@ public class ControlerLinterna : MonoBehaviour
     }
     public void flashlightflashing()
     {
-        if (currentLife <= 0)
+        if (!lifeReachedZeroEventTriggered && currentLife <= 0)
         {
             LinternaPlayer.enabled = false;
             SliderLife.fillRect.gameObject.SetActive(false);
             SliderLife.handleRect.gameObject.SetActive(false);
             OnFlashLigthOut?.Invoke();
+            lifeReachedZeroEventTriggered = true;
+
             return;
         }
 
         // Verifica si la vida de la linterna está a la mitad y ejecuta el evento correspondiente
-        if (currentLife <= 50)
+        if (!lifeReachedHalfEventTriggered && currentLife <= 50)
         {
             if (LinternaPlayer.enabled && canToggleFlashlight)
             {
                 StartCoroutine(FlashlightToggle());
             }
             OnLifeHalfLintern?.Invoke();
+            lifeReachedHalfEventTriggered = true;
         }
     }
     private IEnumerator FlashlightToggle()
@@ -124,8 +129,8 @@ public class ControlerLinterna : MonoBehaviour
 
         // Apaga la linterna
         LinternaPlayer.enabled = false;
+        OnLinternOff?.Invoke();
         SliderLife.handleRect.gameObject.SetActive(false);
-
         particulas.Stop();
 
         // Espera un tiempo aleatorio para simular el parpadeo
@@ -134,8 +139,8 @@ public class ControlerLinterna : MonoBehaviour
 
         // Enciende la linterna
         LinternaPlayer.enabled = true;
+        OnLinternOn?.Invoke();
         SliderLife.handleRect.gameObject.SetActive(true);
-
         particulas.Play();
 
         // Espera un tiempo aleatorio antes de permitir cambiar el estado nuevamente

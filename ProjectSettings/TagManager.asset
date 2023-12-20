@@ -10,6 +10,7 @@ TagManager:
   - Objeto
   - Pila
   - Laberinto
+  - Moneda
   layers:
   - Default
   - TransparentFX

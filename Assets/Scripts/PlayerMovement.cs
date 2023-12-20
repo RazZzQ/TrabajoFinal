@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 using Cinemachine;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -38,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     public float TimeTextVisible = 3;
     public float MaxDistanceRay = 1;
 
+    public event Action GrabObject;
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -69,6 +72,11 @@ public class PlayerMovement : MonoBehaviour
             mensajePresionaE.text = "";
             lineRenderer.enabled = false;
         }
+        if (currentObjectForWin == ObjetosNecesario.Length)
+        {
+            //Cambia a la escena de "Ganar"
+            SceneManager.LoadScene("Ganar");
+        }
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -99,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            speed = 7f;
+            speed = 9f;
         }
         else if (context.canceled)
         {
@@ -126,11 +134,14 @@ public class PlayerMovement : MonoBehaviour
             linterna.currentLife = 100;
             linterna.SliderLife.fillRect.gameObject.SetActive(true);
             linterna.SliderLife.value = linterna.currentLife;
+            linterna.lifeReachedHalfEventTriggered = false;
+            linterna.lifeReachedZeroEventTriggered = false;
         }
         else if (obj.CompareTag("Objeto"))
         {
             lineRenderer.material = Objeto;
             Destroy(obj);
+            GrabObject?.Invoke();
             currentObjectForWin++;
             int objetosFaltantes = ObjetosNecesario.Length - currentObjectForWin;
 

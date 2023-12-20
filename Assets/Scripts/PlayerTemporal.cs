@@ -1,9 +1,11 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerTemporal : MonoBehaviour
 {
@@ -38,6 +40,8 @@ public class PlayerTemporal : MonoBehaviour
     public float TimeTextVisible = 3;
     public float MaxDistanceRay = 1;
 
+    public event Action OnGrabCoin;
+
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -69,6 +73,12 @@ public class PlayerTemporal : MonoBehaviour
             mensajePresionaE.text = "";
             lineRenderer.enabled = false;
         }
+        // Verifica si todos los objetos necesarios han sido recogidos
+        if (currentObjectForWin == ObjetosNecesario.Length)
+        {
+            //Cambia a la escena de "Ganar"
+            SceneManager.LoadScene("Ganar");
+        }
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -99,7 +109,7 @@ public class PlayerTemporal : MonoBehaviour
     {
         if (context.performed)
         {
-            speed = 7f;
+            speed = 9f;
         }
         else if (context.canceled)
         {
@@ -118,20 +128,16 @@ public class PlayerTemporal : MonoBehaviour
     }
     private void InteractWithObject(GameObject obj)
     {
-        // Puedes usar el tag para determinar el tipo de objeto y realizar la acción correspondiente
-        if (obj.CompareTag("Pila"))
-        {
-            Destroy(obj);
-        }
-        else if (obj.CompareTag("Objeto"))
+        if (obj.CompareTag("Moneda"))
         {
             lineRenderer.material = Objeto;
             Destroy(obj);
+            OnGrabCoin?.Invoke();
             currentObjectForWin++;
             int objetosFaltantes = ObjetosNecesario.Length - currentObjectForWin;
 
-            // Muestra el texto en el objeto TextMeshPro sin utilizar {$} ni {0}
-            ObjetosNecesarios.text = "Objetos: " + currentObjectForWin + "/" + ObjetosNecesario.Length + "\nFaltantes: " + objetosFaltantes;
+            // Muestra el texto en el objeto TextMeshPro
+            ObjetosNecesarios.text = "Monedas: " + currentObjectForWin + "/" + ObjetosNecesario.Length + "\nFaltantes: " + objetosFaltantes;
 
             // Después de unos segundos, borra el texto
             StartCoroutine(ClearTextAfterDelay(TimeTextVisible));

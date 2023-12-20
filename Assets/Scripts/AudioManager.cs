@@ -19,6 +19,14 @@ public class AudioManager : MonoBehaviour
     private bool isMusicMuted = false;
     private bool isSFXMuted = false;
 
+    private void Awake()
+    {
+        if(musicSlider == null && sfxSlider == null)
+        {
+            Debug.Log("");
+        }
+    }
+
     private void Start()
     {
         if (PlayerPrefs.HasKey(musicVolumeParameter))
@@ -91,6 +99,19 @@ public class AudioManager : MonoBehaviour
         else
         {
             SetMusicVolume(audioSettings.musicVolume);
+        }
+    }
+    public void ToggleSFXMute()
+    {
+        isSFXMuted = !isSFXMuted;
+
+        if (isSFXMuted)
+        {
+            audioMixer.SetFloat(sfxVolumeParameter, -80f); // Set a low value for muting
+        }
+        else
+        {
+            SetMusicVolume(audioSettings.sfxVolume);
         }
     }
     public void PlaySFX(int sfxIndex)
