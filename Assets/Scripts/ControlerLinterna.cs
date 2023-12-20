@@ -21,11 +21,6 @@ public class ControlerLinterna : MonoBehaviour
     public float velocidadPerdidaVida = 2f;
     public float TiempoParaEncontrarBateriaNueva = 5;
 
-    //variables para el aturdimiento
-    public float CurrentTimeStun = 0f;
-    public float TimeNecesaryForStun = 5f;
-
-
     //eventos
     public event Action OnLifeHalfLintern;
     public event Action OnFlashLigthOut;
@@ -129,7 +124,6 @@ public class ControlerLinterna : MonoBehaviour
 
         // Apaga la linterna
         LinternaPlayer.enabled = false;
-        OnLinternOff?.Invoke();
         SliderLife.handleRect.gameObject.SetActive(false);
         particulas.Stop();
 
@@ -139,7 +133,6 @@ public class ControlerLinterna : MonoBehaviour
 
         // Enciende la linterna
         LinternaPlayer.enabled = true;
-        OnLinternOn?.Invoke();
         SliderLife.handleRect.gameObject.SetActive(true);
         particulas.Play();
 
