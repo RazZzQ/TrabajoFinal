@@ -63,7 +63,7 @@ public class BarraDeMiedo : MonoBehaviour
 
         // Asegúrate de que la barra de miedo esté en el rango [0, 100]
         barraMiedoSlider.value = Mathf.Clamp(barraMiedoSlider.value, 0f, 100f);
-    }
+    }//tiempoAsintotico O(1)
     void AumentarBarraMiedoPorTiempo()
     {
         float tiempoActual = Time.time;
@@ -73,11 +73,11 @@ public class BarraDeMiedo : MonoBehaviour
         tiempoAnterior = tiempoActual;
 
         barraMiedoSlider.value = Mathf.Clamp(barraMiedoSlider.value, 0f, 100f);
-    }
+    }//tiempoAsintotico O(1)
     public void AumentarBarraMiedo(float cantidad)
     {
         barraMiedoSlider.value += cantidad;
-    }
+    }//tiempoAsintotico O(1)
     void PerderJuego()
     {
         scoreData.AgregarPuntaje(barraMiedoSlider.value, scoreData.tiempoVivo);
@@ -85,7 +85,7 @@ public class BarraDeMiedo : MonoBehaviour
         scoreData.tiempoVivo = 0f;
 
         SceneManager.LoadScene("Perder");
-    }
+    }//tiempoAsintotico O(1)
     void CambiarCamara()
     {
         // Ajusta las prioridades de las cámaras para activar/desactivar
@@ -99,7 +99,7 @@ public class BarraDeMiedo : MonoBehaviour
             playerCamera.Priority = 1;
             skyCamera.Priority = 0;
         }
-    }
+    }//tiempoAsintotico O(1)
 
     void ActivarSpotlight(bool activar)
     {
@@ -108,5 +108,5 @@ public class BarraDeMiedo : MonoBehaviour
         {
             skyCameraSpotlight.enabled = activar;
         }
-    }
+    }//tiempoAsintotico O(1)
 }

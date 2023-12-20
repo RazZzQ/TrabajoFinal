@@ -33,5 +33,5 @@ public class Rank : MonoBehaviour
             textoPuntajes += (i + 1) + ". Miedo: " + puntajes[i].puntaje + ", Tiempo Vivo: " + puntajes[i].tiempoVivo + "\n";
         }
         return textoPuntajes;
-    }
+    }//Tiempo Asintotico O(N)
 }

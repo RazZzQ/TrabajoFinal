@@ -217,7 +217,7 @@ public class MonsterControler : MonoBehaviour
             }
         }
         isPlayerInVision = playerDetected;
-    }
+    }//TiempoAsintotico O(N)
     private void MoveToNode()
     {
         if (currentNode == null)

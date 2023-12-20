@@ -99,7 +99,7 @@ public class LaberintosCambiantes : MonoBehaviour
             // Instancia el nuevo laberinto
             circularList.GetCurrentNode().CurrentLaberintoInstance = Instantiate(currentLaberintoPrefab, currentLaberintoPrefab.transform.position, Quaternion.identity);
         }
-    }
+    }//TiempoAsintotico O(k) por instanciar y destruir
 
     void CambiarLaberinto()
     {
