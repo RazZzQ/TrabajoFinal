@@ -241,7 +241,6 @@ public class MonsterControler : MonoBehaviour
     {
         if (other.CompareTag("Node"))
         {
-            Debug.Log("Colision");
             currentNode = currentNode.nextNode;
         }
         if (other.CompareTag("StunMonster"))

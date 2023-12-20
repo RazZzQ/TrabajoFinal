@@ -9,6 +9,7 @@ public class LaberintosCambiantes : MonoBehaviour
     public float tiempoEntreCambios = 5f; // Tiempo en segundos entre cambios de laberinto
     public float tiempoTranscurrido = 0f;
 
+
     public GameObject lab1;
     public GameObject lab2;
     public GameObject lab3;
@@ -35,7 +36,6 @@ public class LaberintosCambiantes : MonoBehaviour
 
         // Instancia el primer laberinto
         InstantiateCurrentLaberinto();
-
     }
 
     void Update()
@@ -87,5 +87,10 @@ public class LaberintosCambiantes : MonoBehaviour
     {
         playerEncontroSalida = true;
         // Puedes realizar acciones adicionales cuando el jugador encuentra la salida
+    }
+    public void AumentarTiempoEntreCambios(float cantidad)
+    {
+        tiempoEntreCambios += cantidad;
+        Debug.Log("Tiempo entre cambios aumentado a: " + tiempoEntreCambios);
     }
 }
