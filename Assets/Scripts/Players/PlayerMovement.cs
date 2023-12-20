@@ -36,8 +36,6 @@ public class PlayerMovement : MonoBehaviour
 
     //variables
     private int currentObjectForWin = 0;
-    public int objectFull;
-    private int currentEspecialObject = 0;
     public float TimeTextVisible = 3;
     public float MaxDistanceRay = 1;
     private bool hasWonBosque = false;
@@ -73,11 +71,11 @@ public class PlayerMovement : MonoBehaviour
             mensajePresionaE.text = "";
             lineRenderer.enabled = false;
         }
-        if (currentObjectForWin == ObjetosNecesario.Length && !hasWonBosque)
+        if (currentObjectForWin == ObjetosNecesario.Length)
         {
             // Cambia a la escena de "Ganar"
-            SceneManager.LoadScene("Escuela");
-            hasWonBosque = true; // Marca que ya ha ganado para evitar múltiples cambios de escena
+            SceneManager.LoadScene("Ganar");
+            hasWonBosque = true; 
         }
     }
 
@@ -151,16 +149,6 @@ public class PlayerMovement : MonoBehaviour
             ObjetosNecesarios.text = "Objetos: " + currentObjectForWin + "/" + ObjetosNecesario.Length + "\nFaltantes: " + objetosFaltantes;
 
             // Después de unos segundos, borra el texto
-            StartCoroutine(ClearTextAfterDelay(TimeTextVisible));
-        }
-        else if (obj.CompareTag("ObjetoEspecial"))
-        {
-            lineRenderer.material = Objeto;
-            Destroy(obj);
-            currentEspecialObject++;
-            int ObjetosEspecialesRestantes = ObjetosEspeciales.Length - currentEspecialObject;
-            ObjetosNecesarios.text = "Objetos: " + currentEspecialObject + "/" + ObjetosEspeciales.Length + "\nFaltantes: " + ObjetosEspecialesRestantes;
-
             StartCoroutine(ClearTextAfterDelay(TimeTextVisible));
         }
     }

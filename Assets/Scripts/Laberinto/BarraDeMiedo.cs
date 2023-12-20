@@ -8,7 +8,7 @@ using Cinemachine;
 public class BarraDeMiedo : MonoBehaviour
 {
     public Slider barraMiedoSlider;
-    public float perdidaPorTiempo = 2f;
+    public float perdidaPorTiempo = 5f;
     public SO_Puntaje scoreData;
     public CinemachineVirtualCamera playerCamera;
     public CinemachineVirtualCamera skyCamera;

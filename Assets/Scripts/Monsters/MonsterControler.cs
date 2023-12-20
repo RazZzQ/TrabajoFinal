@@ -52,10 +52,6 @@ public class MonsterControler : MonoBehaviour
     public float stunForTime = 5f;
     public float tiempoStunMaximo = 120f;
 
-
-    //damage
-    public int damage = 5;
-
     //boleanos
     private bool isStunned = false;
     private bool isPlayerInVision = false;
