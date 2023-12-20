@@ -2356,8 +2356,8 @@ GameObject:
   m_Component:
   - component: {fileID: 587253536}
   - component: {fileID: 587253531}
-  - component: {fileID: 587253535}
-  - component: {fileID: 587253530}
+  - component: {fileID: 587253538}
+  - component: {fileID: 587253537}
   - component: {fileID: 587253534}
   - component: {fileID: 587253533}
   - component: {fileID: 587253532}
@@ -2368,29 +2368,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &587253530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587253529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bc2e47f886875c4d928acb13012e5b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LinternaPlayer: {fileID: 587253531}
-  PilaPrefab: {fileID: 6045001199012246947, guid: ec7eeb2e04ed14044b41a200ad14c664, type: 3}
-  monstruo: {fileID: 0}
-  SliderLife: {fileID: 2122959682}
-  LifeLintern: 100
-  currentLife: 0
-  distanciaMonstruo: 5
-  velocidadPerdidaVida: 7
-  TiempoParaEncontrarBateriaNueva: 5
-  lifeReachedZeroEventTriggered: 0
-  lifeReachedHalfEventTriggered: 0
 --- !u!108 &587253531
 Light:
   m_ObjectHideFlags: 0
@@ -7283,8 +7260,8 @@ MonoBehaviour:
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 587253530}
-        m_TargetAssemblyTypeName: ControlerLinterna, Assembly-CSharp
+      - m_Target: {fileID: 587253537}
+        m_TargetAssemblyTypeName: LinternaEscuela, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 0
         m_Arguments:
@@ -7306,19 +7283,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &587253535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587253529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20d02d56ca551af4da587cbff7069efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Linterna: {fileID: 587253530}
 --- !u!4 &587253536
 Transform:
   m_ObjectHideFlags: 0
@@ -7349,6 +7313,42 @@ Transform:
   - {fileID: 180905435}
   m_Father: {fileID: 439259931}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &587253537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587253529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f885941a2bb9ee4288cd85863b1e267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LinternaPlayer: {fileID: 587253531}
+  PilaPrefab: {fileID: 6045001199012246947, guid: ec7eeb2e04ed14044b41a200ad14c664, type: 3}
+  monstruo: {fileID: 1418384768}
+  SliderLife: {fileID: 2122959682}
+  LifeLintern: 100
+  currentLife: 0
+  distanciaMonstruo: 5
+  velocidadPerdidaVida: 2
+  TiempoParaEncontrarBateriaNueva: 5
+  lifeReachedZeroEventTriggered: 0
+  lifeReachedHalfEventTriggered: 0
+--- !u!114 &587253538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587253529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf03691d0a897f249859e58e5033e753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Linterna: {fileID: 587253537}
 --- !u!65 &594394903
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8265,7 +8265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86c2df6f7050ec489d14dd91ece23aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlerLinterna: {fileID: 587253530}
+  controlerLinterna: {fileID: 0}
   Player: {fileID: 1299232357}
   Monster: {fileID: 0}
   audioManager: {fileID: 451328890}
@@ -8807,6 +8807,74 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2, y: 0.2, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &846171784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 846171787}
+  - component: {fileID: 846171786}
+  - component: {fileID: 846171785}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &846171785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846171784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &846171786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846171784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &846171787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846171784}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &869988450 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9211495179898292172, guid: 5966d4bc2fb89c94f9cb838b72b64b89, type: 3}
@@ -11574,7 +11642,7 @@ MonoBehaviour:
   - {fileID: 397740926}
   - {fileID: 182979146}
   lineRenderer: {fileID: 1299232350}
-  linterna: {fileID: 587253530}
+  linterna: {fileID: 0}
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -12065,7 +12133,7 @@ MonoBehaviour:
   stunForTime: 5
   tiempoStunMaximo: 120
   damage: 0
-  linterna: {fileID: 587253530}
+  linterna: {fileID: 0}
   player: {fileID: 1299232357}
   nodo: {fileID: 678901830}
   nodo1: {fileID: 2045598684}
@@ -14815,3 +14883,4 @@ SceneRoots:
   - {fileID: 1885336}
   - {fileID: 776580550}
   - {fileID: 451328891}
+  - {fileID: 846171787}

@@ -108,7 +108,7 @@ public class PlayerTemporal : MonoBehaviour
     {
         if (context.performed)
         {
-            speed = 9f;
+            speed = 15f;
         }
         else if (context.canceled)
         {

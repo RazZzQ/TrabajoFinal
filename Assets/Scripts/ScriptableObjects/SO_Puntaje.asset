@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7cc1baad6b11a42802986620e078ca, type: 3}
   m_Name: SO_Puntaje
   m_EditorClassIdentifier: 
+  maxPuntajes: 10
+  puntajesActualizados: 0
   tiempoVivo: 0
